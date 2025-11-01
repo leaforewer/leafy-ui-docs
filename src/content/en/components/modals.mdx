@@ -1,0 +1,538 @@
+---
+title: Modals
+desc: Accessible dialog boxes built on native HTML dialog elements with smooth animations and backdrop effects.
+classnames:
+  component:
+    - class: modal
+      desc: Base modal container with backdrop and positioning
+    - class: modal-box
+      desc: Content container with styling and animations
+    - class: modal-backdrop
+      desc: Clickable backdrop area for closing modal
+  modifiers:
+    - class: modal-open
+      desc: Force modal to show (for testing/demos)
+  attributes:
+    - class: showModal()
+      desc: JavaScript method to open a dialog modal
+    - class: close()
+      desc: JavaScript method to close a dialog modal
+    - class: method="dialog"
+      desc: Form method for closing modal when submitted
+---
+
+import { Tabs } from 'nextra/components'
+
+# Modals
+
+Accessible dialog boxes built on native HTML `<dialog>` elements with smooth animations and backdrop effects.
+
+## Setup
+
+Choose your setup method based on your framework:
+
+<Tabs items={['JavaScript']}>
+  <Tabs.Tab>
+    First, install the Leafy UI core package:
+    
+    ```bash
+    npm install @leafy-ui/core
+    ```
+    
+    Then import the modal styles in your project:
+    
+    ```js
+    import '@leafy-ui/core/css/components/modal.css'
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Basic modal
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <button 
+            onclick="document.getElementById('basic_modal').showModal()" 
+            class="pop-btn interactive"
+          >
+            Open Basic Modal
+          </button>
+          
+          <dialog id="basic_modal" class="modal">
+            <div class="modal-box">
+              <h3 class="text-lg font-semibold mb-4">Basic Modal</h3>
+              <p class="py-2 mb-4">
+                This is a basic modal dialog built with Leafy UI. It includes smooth animations 
+                and proper backdrop handling.
+              </p>
+              <form method="dialog">
+                <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+                  ✕
+                </button>
+                <button class="pop-btn interactive">Close Modal</button>
+              </form>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button 
+      onclick="document.getElementById('basic_modal').showModal()" 
+      class="pop-btn interactive"
+    >
+      Open Basic Modal
+    </button>
+    
+    <dialog id="basic_modal" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-semibold mb-4">Basic Modal</h3>
+        <p class="py-2 mb-4">
+          This is a basic modal dialog built with Leafy UI.
+        </p>
+        <form method="dialog">
+          <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+            ✕
+          </button>
+          <button class="pop-btn interactive">Close Modal</button>
+        </form>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Confirmation modal
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <button 
+            onclick="document.getElementById('confirm_modal').showModal()" 
+            class="pop-btn bordered interactive"
+          >
+            Delete Item
+          </button>
+          
+          <dialog id="confirm_modal" class="modal">
+            <div class="modal-box">
+              <h3 class="text-lg font-semibold mb-4">Confirm Action</h3>
+              <p class="py-2 mb-4">
+                Are you sure you want to delete this item? This action cannot be undone.
+              </p>
+              <form method="dialog">
+                <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+                  ✕
+                </button>
+                <div class="flex gap-2">
+                  <button class="pop-btn bg-red-500 hover:bg-red-600 text-white">Delete</button>
+                  <button class="pop-btn">Cancel</button>
+                </div>
+              </form>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button 
+      onclick="document.getElementById('confirm_modal').showModal()" 
+      class="pop-btn bordered interactive"
+    >
+      Delete Item
+    </button>
+    
+    <dialog id="confirm_modal" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-semibold mb-4">Confirm Action</h3>
+        <p class="py-2 mb-4">
+          Are you sure you want to delete this item? This action cannot be undone.
+        </p>
+        <form method="dialog">
+          <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+            ✕
+          </button>
+          <div class="flex gap-2">
+            <button class="pop-btn bg-red-500 hover:bg-red-600 text-white">Delete</button>
+            <button class="pop-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Large modal
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <button 
+            onclick="document.getElementById('large_modal').showModal()" 
+            class="pop-btn interactive"
+          >
+            Open Large Modal
+          </button>
+          
+          <dialog id="large_modal" class="modal">
+            <div class="modal-box max-w-3xl">
+              <h3 class="text-xl font-semibold mb-4">Large Modal Example</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                  <h4 class="font-semibold mb-2">Features</h4>
+                  <ul class="space-y-1 text-sm">
+                    <li>• Native dialog element</li>
+                    <li>• Smooth animations</li>
+                    <li>• Backdrop blur effect</li>
+                    <li>• Keyboard accessible</li>
+                    <li>• Auto-focus management</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Usage</h4>
+                  <p class="text-sm">
+                    Modals are perfect for confirmations, forms, image viewers, 
+                    or any content that needs focused attention.
+                  </p>
+                </div>
+              </div>
+              <form method="dialog">
+                <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+                  ✕
+                </button>
+                <div class="flex gap-2">
+                  <button class="pop-btn interactive">Confirm</button>
+                  <button class="pop-btn">Cancel</button>
+                </div>
+              </form>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button 
+      onclick="document.getElementById('large_modal').showModal()" 
+      class="pop-btn interactive"
+    >
+      Open Large Modal
+    </button>
+    
+    <dialog id="large_modal" class="modal">
+      <div class="modal-box max-w-3xl">
+        <h3 class="text-xl font-semibold mb-4">Large Modal Example</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div>
+            <h4 class="font-semibold mb-2">Features</h4>
+            <ul class="space-y-1 text-sm">
+              <li>• Native dialog element</li>
+              <li>• Smooth animations</li>
+              <li>• Backdrop blur effect</li>
+              <li>• Keyboard accessible</li>
+              <li>• Auto-focus management</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Usage</h4>
+            <p class="text-sm">
+              Modals are perfect for confirmations, forms, image viewers, 
+              or any content that needs focused attention.
+            </p>
+          </div>
+        </div>
+        <form method="dialog">
+          <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+            ✕
+          </button>
+          <div class="flex gap-2">
+            <button class="pop-btn interactive">Confirm</button>
+            <button class="pop-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Form modal
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <button 
+            onclick="document.getElementById('form_modal').showModal()" 
+            class="pop-btn bordered interactive"
+          >
+            Add New Item
+          </button>
+          
+          <dialog id="form_modal" class="modal">
+            <div class="modal-box">
+              <h3 class="text-lg font-semibold mb-4">Add New Item</h3>
+              <form class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium mb-1">Name</label>
+                  <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-base" placeholder="Enter name">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-1">Description</label>
+                  <textarea class="w-full px-3 py-2 border border-gray-300 rounded-base" rows="3" placeholder="Enter description"></textarea>
+                </div>
+                <div class="flex gap-2">
+                  <button type="submit" class="pop-btn interactive">Save</button>
+                  <button type="button" onclick="document.getElementById('form_modal').close()" class="pop-btn">Cancel</button>
+                </div>
+              </form>
+              <form method="dialog">
+                <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+                  ✕
+                </button>
+              </form>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button 
+      onclick="document.getElementById('form_modal').showModal()" 
+      class="pop-btn bordered interactive"
+    >
+      Add New Item
+    </button>
+    
+    <dialog id="form_modal" class="modal">
+      <div class="modal-box">
+        <h3 class="text-lg font-semibold mb-4">Add New Item</h3>
+        <form class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Name</label>
+            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-base" placeholder="Enter name">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Description</label>
+            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-base" rows="3" placeholder="Enter description"></textarea>
+          </div>
+          <div class="flex gap-2">
+            <button type="submit" class="pop-btn interactive">Save</button>
+            <button type="button" onclick="document.getElementById('form_modal').close()" class="pop-btn">Cancel</button>
+          </div>
+        </form>
+        <form method="dialog">
+          <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+            ✕
+          </button>
+        </form>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Shopping cart modal
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <button 
+            onclick="document.getElementById('cart_modal').showModal()" 
+            class="pop-btn interactive bg-green-500 hover:bg-green-600 text-white"
+          >
+            Add to Basket
+          </button>
+          
+          <dialog id="cart_modal" class="modal">
+            <div class="modal-box max-w-md">
+              <div class="flex items-start gap-4 mb-4">
+                <div class="w-20 h-20 bg-gray-200 rounded-base flex items-center justify-center">
+                  <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v1.13c0 .58.25 1.13.68 1.5L5 10l2.32 2.37A2 2 0 006 14v1.13c0 .58-.25 1.13-.68 1.5L3 19v1a2 2 0 002 2h10a2 2 0 002-2v-1l-2.32-2.37A2 2 0 0014 15.13V14a2 2 0 00-1.32-1.87L10 10l2.68-2.13A2 2 0 0014 5.87V5a2 2 0 00-2-2H4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-1">Wireless Headphones</h3>
+                  <p class="text-sm text-gray-600 mb-2">Premium noise-cancelling headphones with 30-hour battery life</p>
+                  <div class="text-xl font-bold text-green-600">$299.99</div>
+                </div>
+              </div>
+              
+              <div class="space-y-4 mb-6">
+                <div>
+                  <label class="block text-sm font-medium mb-2">Color</label>
+                  <div class="flex gap-2">
+                    <button class="w-8 h-8 rounded-full bg-black border-2 border-gray-300"></button>
+                    <button class="w-8 h-8 rounded-full bg-white border-2 border-gray-300"></button>
+                    <button class="w-8 h-8 rounded-full bg-blue-500 border-2 border-blue-600"></button>
+                  </div>
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-medium mb-2">Quantity</label>
+                  <div class="flex items-center gap-3">
+                    <button class="w-8 h-8 pop-btn text-sm">-</button>
+                    <span class="w-8 text-center">1</span>
+                    <button class="w-8 h-8 pop-btn text-sm">+</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-base mb-4">
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Subtotal:</span>
+                  <span>$299.99</span>
+                </div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span>Shipping:</span>
+                  <span class="text-green-600">Free</span>
+                </div>
+                <hr class="my-2">
+                <div class="flex justify-between font-semibold">
+                  <span>Total:</span>
+                  <span>$299.99</span>
+                </div>
+              </div>
+              
+              <form method="dialog">
+                <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+                  ✕
+                </button>
+                <div class="flex gap-2">
+                  <button class="pop-btn interactive bg-green-500 hover:bg-green-600 text-white flex-1">
+                    Add to Cart
+                  </button>
+                  <button class="pop-btn flex-1">Continue Shopping</button>
+                </div>
+              </form>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button 
+      onclick="document.getElementById('cart_modal').showModal()" 
+      class="pop-btn interactive bg-green-500 hover:bg-green-600 text-white"
+    >
+      Add to Basket
+    </button>
+    
+    <dialog id="cart_modal" class="modal">
+      <div class="modal-box max-w-md">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="w-20 h-20 bg-gray-200 rounded-base flex items-center justify-center">
+            <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v1.13c0 .58.25 1.13.68 1.5L5 10l2.32 2.37A2 2 0 006 14v1.13c0 .58-.25 1.13-.68 1.5L3 19v1a2 2 0 002 2h10a2 2 0 002-2v-1l-2.32-2.37A2 2 0 0014 15.13V14a2 2 0 00-1.32-1.87L10 10l2.68-2.13A2 2 0 0014 5.87V5a2 2 0 00-2-2H4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold mb-1">Wireless Headphones</h3>
+            <p class="text-sm text-gray-600 mb-2">Premium noise-cancelling headphones</p>
+            <div class="text-xl font-bold text-green-600">$299.99</div>
+          </div>
+        </div>
+        
+        <div class="space-y-4 mb-6">
+          <div>
+            <label class="block text-sm font-medium mb-2">Color</label>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 rounded-full bg-black border-2 border-gray-300"></button>
+              <button class="w-8 h-8 rounded-full bg-white border-2 border-gray-300"></button>
+              <button class="w-8 h-8 rounded-full bg-blue-500 border-2 border-blue-600"></button>
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium mb-2">Quantity</label>
+            <div class="flex items-center gap-3">
+              <button class="w-8 h-8 pop-btn text-sm">-</button>
+              <span class="w-8 text-center">1</span>
+              <button class="w-8 h-8 pop-btn text-sm">+</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 p-4 rounded-base mb-4">
+          <div class="flex justify-between text-sm mb-1">
+            <span>Subtotal:</span>
+            <span>$299.99</span>
+          </div>
+          <div class="flex justify-between text-sm mb-1">
+            <span>Shipping:</span>
+            <span class="text-green-600">Free</span>
+          </div>
+          <hr class="my-2">
+          <div class="flex justify-between font-semibold">
+            <span>Total:</span>
+            <span>$299.99</span>
+          </div>
+        </div>
+        
+        <form method="dialog">
+          <button class="absolute top-4 right-4 size-8 pop-btn interactive p-0 text-sm">
+            ✕
+          </button>
+          <div class="flex gap-2">
+            <button class="pop-btn interactive bg-green-500 hover:bg-green-600 text-white flex-1">
+              Add to Cart
+            </button>
+            <button class="pop-btn flex-1">Continue Shopping</button>
+          </div>
+        </form>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+    ```
+  </Tabs.Tab>
+</Tabs>

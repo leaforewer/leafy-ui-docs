@@ -1,0 +1,355 @@
+---
+title: "Tooltips"
+description: "Documentation and interactive examples for the Tooltip component for contextual information."
+---
+
+import { Tabs } from 'nextra/components'
+
+# Tooltips
+
+Leafy UI tooltips provide contextual information on hover or focus, perfect for explaining UI elements without cluttering the interface.
+
+## Class Reference
+
+| Class Name | Type | Description |
+|------------|------|-------------|
+| `tooltip` | Component | Base class for the tooltip component |
+| `tooltip-content` | Component | Rich content container element |
+| `tooltip-open` | State | Force tooltip to always be visible |
+| `tooltip-top` | Position | Position tooltip above element |
+| `tooltip-bottom` | Position | Position tooltip below element |
+| `tooltip-left` | Position | Position tooltip to the left |
+| `tooltip-right` | Position | Position tooltip to the right |
+| `tooltip-bg-{color}` | Color | Background color for tooltip |
+| `tooltip-text-{color}` | Color | Text color for tooltip |
+
+## Basic Tooltip Component
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6 space-x-4">
+      <div className="tooltip" data-tooltip="This is a basic tooltip">
+        <button className="pop-btn interactive">Hover me</button>
+      </div>
+      
+      <div className="tooltip">
+        <button className="pop-btn interactive">Rich content</button>
+        <div className="tooltip-content">
+          This tooltip uses a child element for content
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- Simple text tooltip -->
+    <div class="tooltip" data-tooltip="This is a basic tooltip">
+      <button class="pop-btn interactive">Hover me</button>
+    </div>
+    
+    <!-- Rich content tooltip -->
+    <div class="tooltip">
+      <button class="pop-btn interactive">Rich content</button>
+      <div class="tooltip-content">
+        This tooltip uses a child element for content
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Position Variants
+
+### Top Position
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6 text-center">
+      <div className="tooltip tooltip-top" data-tooltip="Tooltip on top">
+        <button className="pop-btn">Top</button>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tooltip tooltip-top" data-tooltip="Tooltip on top">
+      <button class="pop-btn">Top</button>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Bottom Position
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6 text-center">
+      <div className="tooltip tooltip-bottom" data-tooltip="Tooltip on bottom">
+        <button className="pop-btn">Bottom</button>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tooltip tooltip-bottom" data-tooltip="Tooltip on bottom">
+      <button class="pop-btn">Bottom</button>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Left and Right Positions
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6 flex justify-center gap-8">
+      <div className="tooltip tooltip-left" data-tooltip="Tooltip on left">
+        <button className="pop-btn">Left</button>
+      </div>
+      
+      <div className="tooltip tooltip-right" data-tooltip="Tooltip on right">
+        <button className="pop-btn">Right</button>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tooltip tooltip-left" data-tooltip="Tooltip on left">
+      <button class="pop-btn">Left</button>
+    </div>
+    
+    <div class="tooltip tooltip-right" data-tooltip="Tooltip on right">
+      <button class="pop-btn">Right</button>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color Variants
+
+### Blue Theme
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="tooltip tooltip-bg-blue-500 tooltip-text-white" data-tooltip="Blue themed tooltip">
+        <button className="pop-btn interactive">Blue Tooltip</button>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tooltip tooltip-bg-blue-500 tooltip-text-white" data-tooltip="Blue themed tooltip">
+      <button class="pop-btn interactive">Blue Tooltip</button>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Green Theme
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="tooltip tooltip-bg-green-500 tooltip-text-white" data-tooltip="Green themed tooltip">
+        <button className="pop-btn">Green Tooltip</button>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tooltip tooltip-bg-green-500 tooltip-text-white" data-tooltip="Green themed tooltip">
+      <button class="pop-btn">Green Tooltip</button>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Dark Theme
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="tooltip tooltip-bg-black tooltip-text-lime-400" data-tooltip="Dark theme with lime text">
+        <button className="pop-btn bordered">Dark + Lime</button>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tooltip tooltip-bg-black tooltip-text-lime-400" data-tooltip="Dark theme with lime text">
+      <button class="pop-btn bordered">Dark + Lime</button>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## State Variants
+
+### Always Visible
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="tooltip tooltip-open tooltip-top" data-tooltip="This tooltip is always visible">
+        <button className="pop-btn interactive">Always Visible</button>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tooltip tooltip-open tooltip-top" data-tooltip="This tooltip is always visible">
+      <button class="pop-btn interactive">Always Visible</button>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Real-World Use Cases
+
+### Form Field Help
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-sm border space-y-4">
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Password
+            <div className="tooltip tooltip-right tooltip-bg-blue-500 tooltip-text-white inline-block ml-1" data-tooltip="Password must be at least 8 characters with numbers and symbols">
+              <span className="text-blue-500 cursor-help">ℹ️</span>
+            </div>
+          </label>
+          <input type="password" className="w-full px-3 py-2 border rounded-md" placeholder="Enter password" />
+        </div>
+        
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Credit Card
+            <div className="tooltip tooltip-right tooltip-bg-gray-700 tooltip-text-white inline-block ml-1" data-tooltip="We use 256-bit SSL encryption to protect your payment information">
+              <span className="text-gray-500 cursor-help">🔒</span>
+            </div>
+          </label>
+          <input type="text" className="w-full px-3 py-2 border rounded-md" placeholder="1234 5678 9012 3456" />
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-sm border space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">
+          Password
+          <div class="tooltip tooltip-right tooltip-bg-blue-500 tooltip-text-white inline-block ml-1" data-tooltip="Password must be at least 8 characters with numbers and symbols">
+            <span class="text-blue-500 cursor-help">ℹ️</span>
+          </div>
+        </label>
+        <input type="password" class="w-full px-3 py-2 border rounded-md" placeholder="Enter password" />
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-1">
+          Credit Card
+          <div class="tooltip tooltip-right tooltip-bg-gray-700 tooltip-text-white inline-block ml-1" data-tooltip="We use 256-bit SSL encryption to protect your payment information">
+            <span class="text-gray-500 cursor-help">🔒</span>
+          </div>
+        </label>
+        <input type="text" class="w-full px-3 py-2 border rounded-md" placeholder="1234 5678 9012 3456" />
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Action Buttons with Tooltips
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="flex justify-center gap-2 p-4 bg-gray-50 rounded-lg">
+        <div className="tooltip tooltip-top tooltip-bg-green-500 tooltip-text-white" data-tooltip="Save changes">
+          <button className="pop-btn interactive size-10 p-0">💾</button>
+        </div>
+        
+        <div className="tooltip tooltip-top tooltip-bg-blue-500 tooltip-text-white" data-tooltip="Edit item">
+          <button className="pop-btn size-10 p-0">✏️</button>
+        </div>
+        
+        <div className="tooltip tooltip-top tooltip-bg-red-500 tooltip-text-white" data-tooltip="Delete permanently">
+          <button className="pop-btn size-10 p-0">🗑️</button>
+        </div>
+        
+        <div className="tooltip tooltip-top" data-tooltip="More options">
+          <button className="pop-btn bordered size-10 p-0">⋯</button>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="flex justify-center gap-2 p-4 bg-gray-50 rounded-lg">
+      <div class="tooltip tooltip-top tooltip-bg-green-500 tooltip-text-white" data-tooltip="Save changes">
+        <button class="pop-btn interactive size-10 p-0">💾</button>
+      </div>
+      
+      <div class="tooltip tooltip-top tooltip-bg-blue-500 tooltip-text-white" data-tooltip="Edit item">
+        <button class="pop-btn size-10 p-0">✏️</button>
+      </div>
+      
+      <div class="tooltip tooltip-top tooltip-bg-red-500 tooltip-text-white" data-tooltip="Delete permanently">
+        <button class="pop-btn size-10 p-0">🗑️</button>
+      </div>
+      
+      <div class="tooltip tooltip-top" data-tooltip="More options">
+        <button class="pop-btn bordered size-10 p-0">⋯</button>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Rich Content User Profile
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="max-w-sm mx-auto p-4 bg-white rounded-lg shadow-sm border">
+        <div className="flex items-center gap-3">
+          <div className="tooltip tooltip-bottom tooltip-bg-gray-800 tooltip-text-white">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="User" className="size-10 rounded-full cursor-pointer" />
+            <div className="tooltip-content">
+              <div className="font-semibold">John Doe</div>
+              <div className="text-sm opacity-90">Senior Developer</div>
+              <div className="text-xs opacity-75">john@example.com</div>
+            </div>
+          </div>
+          <div>
+            <div className="font-medium">John Doe</div>
+            <div className="text-sm text-gray-600">Online now</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="max-w-sm mx-auto p-4 bg-white rounded-lg shadow-sm border">
+      <div class="flex items-center gap-3">
+        <div class="tooltip tooltip-bottom tooltip-bg-gray-800 tooltip-text-white">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="User" class="size-10 rounded-full cursor-pointer" />
+          <div class="tooltip-content">
+            <div class="font-semibold">John Doe</div>
+            <div class="text-sm opacity-90">Senior Developer</div>
+            <div class="text-xs opacity-75">john@example.com</div>
+          </div>
+        </div>
+        <div>
+          <div class="font-medium">John Doe</div>
+          <div class="text-sm text-gray-600">Online now</div>
+        </div>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>

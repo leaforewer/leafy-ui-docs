@@ -1,0 +1,125 @@
+---
+title: Carousel
+desc: Interactive carousel component with smooth dragging, infinite scrolling, and customizable animations.
+classnames:
+  component:
+    - class: leaf-carousel
+      desc: Main carousel web component container
+  attributes:
+    - class: snap
+      desc: Enable snap-to-slide behavior
+    - class: infinite
+      desc: Enable infinite scrolling
+    - class: drag-sensitivity
+      desc: Controls drag responsiveness (number, default 0.004)
+    - class: lerp-factor
+      desc: Smoothness of transitions (number, default 0.28)
+    - class: snap-strength
+      desc: Strength of snap effect (number, default 0.08)
+    - class: speed-decay
+      desc: Scroll momentum decay rate (number, default 0.88)
+---
+
+import { Tabs } from 'nextra/components'
+
+# Carousel
+
+Interactive carousel component with smooth dragging, infinite scrolling, and customizable animations. Built as a web component for framework-agnostic usage.
+
+## Setup
+
+Choose your setup method based on your framework:
+
+<Tabs items={['JavaScript']}>
+  <Tabs.Tab>
+    First, install the Leafy UI core package:
+    
+    ```bash
+    npm install @leafy-ui/core
+    ```
+    
+    Then import the carousel web component in your project:
+    
+    ```js
+    import '@leafy-ui/core/components/leaf-carousel'
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Basic carousel
+
+Carousel comes default with snap and infinite scroll, so you don't need to add anything just add ```<leaf-carousel>```.
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <leaf-carousel style="height:320px;">
+            <div class="slide" style="background:#ff9aa2; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">1</div>
+            <div class="slide" style="background:#ffb7b2; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">2</div>
+            <div class="slide" style="background:#ffdac1; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">3</div>
+            <div class="slide" style="background:#e2f0cb; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">4</div>
+          </leaf-carousel>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <leaf-carousel style="height:320px;">
+      <div class="slide" style="background:#ff9aa2;">1</div>
+      <div class="slide" style="background:#ffb7b2;">2</div>
+      <div class="slide" style="background:#ffdac1;">3</div>
+      <div class="slide" style="background:#e2f0cb;">4</div>
+    </leaf-carousel>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Carousel with custom settings
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <leaf-carousel
+            snap
+            infinite
+            drag-sensitivity="0.004"
+            lerp-factor="0.28"
+            snap-strength="0.08"
+            speed-decay="0.88"
+            style="height:320px;"
+          >
+            <div class="slide" style="background:#ff9aa2; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">1</div>
+            <div class="slide" style="background:#ffb7b2; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">2</div>
+            <div class="slide" style="background:#ffdac1; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">3</div>
+            <div class="slide" style="background:#e2f0cb; padding: 2rem; color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem;">4</div>
+          </leaf-carousel>
+        `
+      }} />
+    </div>
+
+    This carousel includes all advanced features with customized sensitivity and animation settings.
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <leaf-carousel
+      snap
+      infinite
+      drag-sensitivity="0.004"
+      lerp-factor="0.28"
+      snap-strength="0.08"
+      speed-decay="0.88"
+      style="height:320px;"
+    >
+      <div class="slide" style="background:#ff9aa2;">1</div>
+      <div class="slide" style="background:#ffb7b2;">2</div>
+      <div class="slide" style="background:#ffdac1;">3</div>
+      <div class="slide" style="background:#e2f0cb;">4</div>
+    </leaf-carousel>
+    ```
+  </Tabs.Tab>
+</Tabs>

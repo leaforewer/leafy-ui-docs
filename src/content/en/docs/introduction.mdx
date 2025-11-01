@@ -1,0 +1,94 @@
+---
+title: "Introduction"
+description: "Learn what Leafy UI is, how it works, and why it’s built differently."
+---
+
+import { Tabs } from 'nextra/components'
+
+# What is Leafy UI?
+
+Leafy UI is a **multi-framework design system** and **CSS component library** built on top of **Tailwind CSS** — but designed to work seamlessly across **React**, **Vue**, and **Web Components**.  
+It gives you elegant, ready-to-use class names and composable React/Vue wrappers, so you can build modern, animated interfaces faster, without losing customization power.
+
+Leafy UI brings the *clarity* of semantic components (like `.pop-btn`, `.accordion`, `.steps`) together with the *flexibility* of atomic utility classes from Tailwind.
+
+---
+
+# How does Leafy UI work?
+
+Leafy UI is distributed as a set of **NPM packages**:
+
+| Package | Purpose |
+|----------|----------|
+| `@leafy-ui/core` | Framework-agnostic CSS and web components |
+| `@leafy-ui/react` | React bindings for Leafy UI components |
+| `@leafy-ui/vue` | Vue bindings for Leafy UI components |
+
+Once installed, you can simply import the CSS or the specific component you need.
+
+<Tabs items={['React', 'Vue', 'Web Component']}>
+  <Tabs.Tab>
+    ```jsx
+    import { AnimatedLetters, SmallImageCarousel } from "@leafy-ui/react"
+    import "@leafy-ui/core/components/leaf-carousel"
+
+    export default function Example() {
+      return (
+        <div className="space-y-4">
+          <button className="pop-btn interactive">Click Me</button>
+          <AnimatedLetters text="Leafy UI" />
+        </div>
+      )
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```vue
+    <template>
+      <div class="space-y-4">
+        <button class="pop-btn interactive">Click Me</button>
+        <AnimatedLetters text="Leafy UI" />
+      </div>
+    </template>
+
+    <script setup>
+    import { AnimatedLetters } from "@leafy-ui/vue"
+    import "@leafy-ui/core/components/leaf-carousel"
+    </script>
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <leaf-carousel snap infinite>
+      <div class="slide" style="background:#ff9aa2;">1</div>
+      <div class="slide" style="background:#ffb7b2;">2</div>
+      <div class="slide" style="background:#ffdac1;">3</div>
+    </leaf-carousel>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+# Why should I use Leafy UI?
+
+Leafy UI is for you if you:
+
+- Want **fewer class names** but **more consistent UI**  
+- Need **React**, **Vue**, or **plain HTML** support from a single design system  
+- Love **Tailwind**, but want more readable code  
+- Want **micro-interactions** and **animation-ready** components out of the box  
+- Need **maintainable, theme-ready** building blocks for modern projects  
+
+Leafy UI is **not** for you if you prefer to hand-craft every padding and border for every element manually.
+
+---
+
+# How is Leafy UI different from Tailwind CSS?
+
+Tailwind gives you atomic CSS utilities like:
+
+```html
+<button class="px-4 py-2 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600">
+  Click Me
+</button>

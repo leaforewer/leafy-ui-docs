@@ -1,0 +1,350 @@
+---
+title: "Steps"
+description: "Documentation and interactive examples for the Steps component for progress indicators and wizards."
+---
+
+import { Tabs } from 'nextra/components'
+
+# Steps
+
+Leafy UI steps provide visual progress indicators perfect for multi-step forms, wizards, and process flows.
+
+## Class Reference
+
+| Class Name | Type | Description |
+|------------|------|-------------|
+| `steps` | Component | Base class for the steps component |
+| `step` | Component | Individual step item |
+| `completed` | State | Marks step as completed/active |
+| `steps-vertical` | Layout | Vertical orientation modifier |
+| `steps-hover` | Behavior | Enable hover effects on incomplete steps |
+| `steps-bg-{color}` | Color | Background color for inactive steps |
+| `steps-text-{color}` | Color | Text color for inactive steps |
+| `steps-active-bg-{color}` | Color | Background color for active/completed steps |
+| `steps-active-text-{color}` | Color | Text color for active/completed steps |
+
+## Basic Steps Component
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <ul className="steps">
+        <li className="step completed">Register</li>
+        <li className="step completed">Choose plan</li>
+        <li className="step">Purchase</li>
+        <li className="step">Receive Product</li>
+      </ul>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="steps">
+      <li class="step completed">Register</li>
+      <li class="step completed">Choose plan</li>
+      <li class="step">Purchase</li>
+      <li class="step">Receive Product</li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Layout Variants
+
+### Vertical Steps
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <ul className="steps steps-vertical">
+        <li className="step completed">
+          <div className="text-start">
+            <div className="font-semibold">Step 1</div>
+            <div className="text-sm text-gray-600">Complete your profile</div>
+          </div>
+        </li>
+        <li className="step completed">
+          <div className="text-start">
+            <div className="font-semibold">Step 2</div>
+            <div className="text-sm text-gray-600">Verify your email</div>
+          </div>
+        </li>
+        <li className="step">
+          <div className="text-start">
+            <div className="font-semibold">Step 3</div>
+            <div className="text-sm text-gray-600">Choose your preferences</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="steps steps-vertical">
+      <li class="step completed">
+        <div class="text-start">
+          <div class="font-semibold">Step 1</div>
+          <div class="text-sm text-gray-600">Complete your profile</div>
+        </div>
+      </li>
+      <li class="step completed">
+        <div class="text-start">
+          <div class="font-semibold">Step 2</div>
+          <div class="text-sm text-gray-600">Verify your email</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="text-start">
+          <div class="font-semibold">Step 3</div>
+          <div class="text-sm text-gray-600">Choose your preferences</div>
+        </div>
+      </li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color Variants
+
+### Light Theme
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <ul className="steps steps-bg-gray-200 steps-text-gray-600 steps-active-bg-blue-500 steps-active-text-white">
+        <li className="step completed">Register</li>
+        <li className="step completed">Choose plan</li>
+        <li className="step">Purchase</li>
+        <li className="step">Receive Product</li>
+      </ul>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="steps steps-bg-gray-200 steps-text-gray-600 steps-active-bg-blue-500 steps-active-text-white">
+      <li class="step completed">Register</li>
+      <li class="step completed">Choose plan</li>
+      <li class="step">Purchase</li>
+      <li class="step">Receive Product</li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Dark Theme
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <ul className="steps steps-bg-black steps-text-white steps-active-bg-lime-400 steps-active-text-black">
+        <li className="step completed">Step 1</li>
+        <li className="step completed">Step 2</li>
+        <li className="step">Step 3</li>
+        <li className="step">Step 4</li>
+      </ul>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="steps steps-bg-black steps-text-white steps-active-bg-lime-400 steps-active-text-black">
+      <li class="step completed">Step 1</li>
+      <li class="step completed">Step 2</li>
+      <li class="step">Step 3</li>
+      <li class="step">Step 4</li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Red Theme
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <ul className="steps steps-bg-red-100 steps-text-red-600 steps-active-bg-red-500 steps-active-text-white">
+        <li className="step completed">Start</li>
+        <li className="step completed">Progress</li>
+        <li className="step">Complete</li>
+      </ul>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="steps steps-bg-red-100 steps-text-red-600 steps-active-bg-red-500 steps-active-text-white">
+      <li class="step completed">Start</li>
+      <li class="step completed">Progress</li>
+      <li class="step">Complete</li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Interactive Variants
+
+### Hoverable Steps
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <ul className="steps steps-hover steps-bg-gray-100 steps-text-gray-600 steps-active-bg-blue-500 steps-active-text-white">
+        <li className="step completed">Completed Step</li>
+        <li className="step completed">Another Completed</li>
+        <li className="step">Hover me!</li>
+        <li className="step">Hover me too!</li>
+      </ul>
+      <p className="text-sm text-gray-600 mt-2">Hover over the incomplete steps to see the interactive effect</p>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="steps steps-hover steps-bg-gray-100 steps-text-gray-600 steps-active-bg-blue-500 steps-active-text-white">
+      <li class="step completed">Completed Step</li>
+      <li class="step completed">Another Completed</li>
+      <li class="step">Hover me!</li>
+      <li class="step">Hover me too!</li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Real-World Use Cases
+
+### Checkout Process
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm border">
+        <h3 className="text-lg font-semibold mb-4">Complete Your Order</h3>
+        <ul className="steps steps-bg-gray-100 steps-text-gray-600 steps-active-bg-green-500 steps-active-text-white mb-6">
+          <li className="step completed">Cart</li>
+          <li className="step completed">Shipping</li>
+          <li className="step completed">Payment</li>
+          <li className="step">Confirmation</li>
+        </ul>
+        <p className="text-sm text-gray-600">You're almost done! Review your payment details.</p>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-sm border">
+      <h3 class="text-lg font-semibold mb-4">Complete Your Order</h3>
+      <ul class="steps steps-bg-gray-100 steps-text-gray-600 steps-active-bg-green-500 steps-active-text-white mb-6">
+        <li class="step completed">Cart</li>
+        <li class="step completed">Shipping</li>
+        <li class="step completed">Payment</li>
+        <li class="step">Confirmation</li>
+      </ul>
+      <p class="text-sm text-gray-600">You're almost done! Review your payment details.</p>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Project Onboarding
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="max-w-lg">
+        <h3 className="text-lg font-semibold mb-4">Getting Started</h3>
+        <ul className="steps steps-vertical steps-bg-blue-50 steps-text-blue-600 steps-active-bg-blue-500 steps-active-text-white">
+          <li className="step completed">
+            <div className="text-start">
+              <div className="font-semibold">Create Account</div>
+              <div className="text-sm opacity-75">Set up your profile</div>
+            </div>
+          </li>
+          <li className="step completed">
+            <div className="text-start">
+              <div className="font-semibold">Verify Email</div>
+              <div className="text-sm opacity-75">Check your inbox</div>
+            </div>
+          </li>
+          <li className="step">
+            <div className="text-start">
+              <div className="font-semibold">Choose Plan</div>
+              <div className="text-sm opacity-75">Select your subscription</div>
+            </div>
+          </li>
+          <li className="step">
+            <div className="text-start">
+              <div className="font-semibold">Start Building</div>
+              <div className="text-sm opacity-75">Create your first project</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="max-w-lg">
+      <h3 class="text-lg font-semibold mb-4">Getting Started</h3>
+      <ul class="steps steps-vertical steps-bg-blue-50 steps-text-blue-600 steps-active-bg-blue-500 steps-active-text-white">
+        <li class="step completed">
+          <div class="text-start">
+            <div class="font-semibold">Create Account</div>
+            <div class="text-sm opacity-75">Set up your profile</div>
+          </div>
+        </li>
+        <li class="step completed">
+          <div class="text-start">
+            <div class="font-semibold">Verify Email</div>
+            <div class="text-sm opacity-75">Check your inbox</div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="text-start">
+            <div class="font-semibold">Choose Plan</div>
+            <div class="text-sm opacity-75">Select your subscription</div>
+          </div>
+        </li>
+        <li class="step">
+          <div class="text-start">
+            <div class="font-semibold">Start Building</div>
+            <div class="text-sm opacity-75">Create your first project</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Form Wizard
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="mt-4 mb-6">
+      <div className="max-w-3xl mx-auto p-6 bg-gray-50 rounded-lg">
+        <ul className="steps steps-hover steps-bg-white steps-text-gray-500 steps-active-bg-purple-500 steps-active-text-white mb-8">
+          <li className="step completed">Personal Info</li>
+          <li className="step completed">Experience</li>
+          <li className="step">Skills Assessment</li>
+          <li className="step">Review & Submit</li>
+        </ul>
+        <div className="bg-white p-6 rounded-lg shadow-sm">
+          <h4 className="font-semibold mb-2">Skills Assessment</h4>
+          <p className="text-sm text-gray-600">Please rate your proficiency in the following areas...</p>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="max-w-3xl mx-auto p-6 bg-gray-50 rounded-lg">
+      <ul class="steps steps-hover steps-bg-white steps-text-gray-500 steps-active-bg-purple-500 steps-active-text-white mb-8">
+        <li class="step completed">Personal Info</li>
+        <li class="step completed">Experience</li>
+        <li class="step">Skills Assessment</li>
+        <li class="step">Review & Submit</li>
+      </ul>
+      <div class="bg-white p-6 rounded-lg shadow-sm">
+        <h4 class="font-semibold mb-2">Skills Assessment</h4>
+        <p class="text-sm text-gray-600">Please rate your proficiency in the following areas...</p>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>

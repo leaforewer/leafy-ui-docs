@@ -1,0 +1,138 @@
+---
+title: Button
+desc: Button provides a consistent and interactive button system with multiple variants and states.
+classnames:
+  component:
+    - class: pop-btn
+      desc: Base button class with modern styling and animations
+  modifier:
+    - class: interactive
+      desc: Adds hover and focus animations
+    - class: active
+      desc: Active state styling
+    - class: bordered
+      desc: Adds an outline border to buttons
+  color:
+    - class: pop-btn-red-500
+      desc: Red shadow color variant
+    - class: pop-btn-blue-500
+      desc: Blue shadow color variant
+---
+
+import { Tabs } from 'nextra/components'
+
+# Button
+
+Button provides a consistent and interactive button system with multiple variants and states. The core `.pop-btn` class creates modern, accessible buttons with smooth animations and hover effects.
+
+## Setup
+
+Install Leafy UI and include the CSS in your project:
+
+```bash
+npm install @leafy-ui/core
+```
+
+```css
+@import "@leafy-ui/core/style";
+```
+
+### Basic button
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <button class="pop-btn">Default Button</button>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button class="pop-btn">Default Button</button>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Button states
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <div style="display: flex; gap: 12px; margin: 24px 0;">
+            <button class="pop-btn">Default</button>
+            <button class="pop-btn interactive">Interactive</button>
+            <button class="pop-btn active">Active</button>
+            <button disabled class="pop-btn">Disabled</button>
+          </div>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button class="pop-btn">Default</button>
+    <button class="pop-btn interactive">Interactive</button>
+    <button class="pop-btn active">Active</button>
+    <button disabled class="pop-btn">Disabled</button>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Button with border
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <button class="pop-btn bordered interactive bg-black text-white">
+            Bordered Button
+          </button>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button class="pop-btn bordered interactive bg-black text-white">
+      Bordered Button
+    </button>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Button with custom colors
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <div style="display: flex; gap: 12px; margin: 24px 0;">
+            <button class="pop-btn pop-btn-red-500 bg-black text-white interactive">
+              Red Variant
+            </button>
+            <button class="pop-btn pop-btn-blue-500 interactive">
+              Blue Variant
+            </button>
+          </div>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <button class="pop-btn pop-btn-red-500 interactive bg-black text-white">
+      Red Variant
+    </button>
+    <button class="pop-btn pop-btn-blue-500 interactive">
+      Blue Variant
+    </button>
+    ```
+  </Tabs.Tab>
+</Tabs>

@@ -1,0 +1,163 @@
+---
+title: Accordion
+desc: Accordion provides collapsible content sections with customizable icons and smooth animations.
+classnames:
+  component:
+    - class: accordion
+      desc: Base accordion styling with smooth animations
+    - class: accordion-gallery
+      desc: Container for accordion with synchronized image gallery
+  modifier:
+    - class: accordion-icon-chevron
+      desc: Adds chevron icon that rotates on open/close
+    - class: accordion-icon-plus
+      desc: Adds plus/minus icon for open/close states
+    - class: accordion-icon-caret
+      desc: Adds caret icon that flips on open/close
+---
+
+import { Tabs } from 'nextra/components'
+
+# Accordion
+
+Accordion provides collapsible content sections with customizable icons and smooth animations. Built on native HTML `<details>` elements for accessibility.
+
+## Setup
+
+Install Leafy UI and include the CSS in your project:
+
+```bash
+npm install @leafy-ui/core
+```
+
+```css
+@import "@leafy-ui/core/style";
+```
+
+### Basic accordion
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <details class="accordion accordion-icon-chevron" name="demo-group-1">
+            <summary>Accordion Item 1 (Chevron Icon)</summary>
+            <p>This accordion uses a chevron icon that rotates when opened.</p>
+          </details>
+          <details class="accordion accordion-icon-chevron" name="demo-group-1">
+            <summary>Accordion Item 2 (Chevron Icon)</summary>
+            <p>This is the content of the second accordion item.</p>
+          </details>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <details class="accordion accordion-icon-chevron" name="accordion-group">
+      <summary>Accordion Title</summary>
+      <p>Accordion content goes here.</p>
+    </details>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Accordion with different icons
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <details class="accordion accordion-icon-chevron" name="demo-group-2">
+            <summary>Chevron Icon</summary>
+            <p>This accordion uses a chevron icon that rotates when opened.</p>
+          </details>
+          <details class="accordion accordion-icon-plus" name="demo-group-2">
+            <summary>Plus Icon</summary>
+            <p>This accordion uses a plus/minus icon for visual variety.</p>
+          </details>
+          <details class="accordion accordion-icon-caret" name="demo-group-2">
+            <summary>Caret Icon</summary>
+            <p>This accordion uses a caret icon that flips on open/close.</p>
+          </details>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <details class="accordion accordion-icon-chevron" name="accordion-group">
+      <summary>Chevron Icon</summary>
+      <p>This accordion uses a chevron icon that rotates when opened.</p>
+    </details>
+
+    <details class="accordion accordion-icon-plus" name="accordion-group">
+      <summary>Plus Icon</summary>
+      <p>This accordion uses a plus/minus icon for visual variety.</p>
+    </details>
+
+    <details class="accordion accordion-icon-caret" name="accordion-group">
+      <summary>Caret Icon</summary>
+      <p>This accordion uses a caret icon that flips on open/close.</p>
+    </details>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Accordion gallery
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <div class="accordion-gallery">
+            <div>
+              <details class="accordion" name="gallery-demo" open>
+                <summary>Product Overview</summary>
+                <p>General information about our main product line and features.</p>
+              </details>
+              <details class="accordion" name="gallery-demo">
+                <summary>Technical Specifications</summary>
+                <p>Detailed technical specifications and requirements.</p>
+              </details>
+              <details class="accordion" name="gallery-demo">
+                <summary>Pricing Information</summary>
+                <p>Comprehensive pricing details and available packages.</p>
+              </details>
+            </div>
+            <div class="images">
+              <img src="https://placehold.co/600x400?text=Overview" alt="Product Overview" />
+              <img src="https://placehold.co/600x400?text=Technical" alt="Technical Specs" />
+              <img src="https://placehold.co/600x400?text=Pricing" alt="Pricing Info" />
+              <img src="https://placehold.co/600x400?text=Default" alt="Default View" class="default" />
+            </div>
+          </div>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="accordion-gallery">
+      <div>
+        <details class="accordion" name="gallery" open>
+          <summary>Item 1</summary>
+          <p>Content 1</p>
+        </details>
+        <details class="accordion" name="gallery">
+          <summary>Item 2</summary>
+          <p>Content 2</p>
+        </details>
+      </div>
+      <div class="images">
+        <img src="image1.jpg" alt="Image 1" />
+        <img src="image2.jpg" alt="Image 2" />
+        <img src="default.jpg" alt="Default" class="default" />
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
