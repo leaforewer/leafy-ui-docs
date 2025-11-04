@@ -15,8 +15,8 @@ importers:
         specifier: ^11.14.1
         version: 11.14.1(@emotion/react@11.14.0(@types/react@19.1.14)(react@19.1.1))(@types/react@19.1.14)(react@19.1.1)
       '@leafy-ui/core':
-        specifier: ^0.3.0
-        version: 0.3.0(tailwindcss@4.1.13)
+        specifier: ^0.5.1
+        version: 0.5.1(tailwindcss@4.1.13)
       '@radix-ui/react-accordion':
         specifier: ^1.2.12
         version: 1.2.12(@types/react-dom@19.1.9(@types/react@19.1.14))(@types/react@19.1.14)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -1386,8 +1386,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@leafy-ui/core@0.3.0':
-    resolution: {integrity: sha512-vkPjj23eJVHaSkR5KECMiDuBhO2bXvFWB+S8pnjSG1DPz2usbJaJskcSIOwCnBVJh78md3S05/MLcSpfEG8j0g==}
+  '@leafy-ui/core@0.5.1':
+    resolution: {integrity: sha512-16f+4DMk1KH5PIANfypvLy3rpEGCfoLxgA0xNayEs+/NAX1YXKCxnooMT+B0rpwoy7jIXSaBFoTP3v3iIF60ww==}
     peerDependencies:
       tailwindcss: '>=4.0.0'
 
@@ -7572,7 +7572,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@leafy-ui/core@0.3.0(tailwindcss@4.1.13)':
+  '@leafy-ui/core@0.5.1(tailwindcss@4.1.13)':
     dependencies:
       lit: 3.3.1
       tailwindcss: 4.1.13

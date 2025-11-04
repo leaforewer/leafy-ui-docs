@@ -30,7 +30,6 @@ Once installed, you can simply import the CSS or the specific component you need
   <Tabs.Tab>
     ```jsx
     import { AnimatedLetters, SmallImageCarousel } from "@leafy-ui/react"
-    import "@leafy-ui/core/components/leaf-carousel"
 
     export default function Example() {
       return (
@@ -53,13 +52,18 @@ Once installed, you can simply import the CSS or the specific component you need
 
     <script setup>
     import { AnimatedLetters } from "@leafy-ui/vue"
-    import "@leafy-ui/core/components/leaf-carousel"
     </script>
     ```
   </Tabs.Tab>
   <Tabs.Tab>
     ```html
-    <leaf-carousel snap infinite>
+    <!-- Import the web component -->
+    <script type="module">
+      import '@leafy-ui/core/components/leaf-carousel';
+    </script>
+
+    <!-- Use the component -->
+    <leaf-carousel>
       <div class="slide" style="background:#ff9aa2;">1</div>
       <div class="slide" style="background:#ffb7b2;">2</div>
       <div class="slide" style="background:#ffdac1;">3</div>
@@ -89,6 +93,25 @@ Leafy UI is **not** for you if you prefer to hand-craft every padding and border
 Tailwind gives you atomic CSS utilities like:
 
 ```html
-<button class="px-4 py-2 rounded-lg bg-emerald-500 text-white hover:bg-emerald-600">
+<button class="flex justify-center items-center rounded-lg bg-neutral-800 text-white px-4 py-2 hover:scale-110 transition-all">
   Click Me
 </button>
+```
+
+Leafy UI gives you **semantic component classes** built on top of Tailwind:
+
+```html
+<button class="leafy-btn">
+  Click Me
+</button>
+```
+
+This approach gives you:
+- **Semantic naming** for complex UI patterns
+- **Atomic flexibility** when you need custom styling
+- **Consistent design tokens** across your project
+
+## Ready to Get Started?
+
+- **[Install Leafy UI](/en/docs/install)** - Get up and running in minutes
+- **[Browse Components](/en/components)** - Explore our component library

@@ -20,7 +20,7 @@ export function LayoutWrapper({ children, lang }: LayoutWrapperProps) {
 
   return (
     <div className="flex min-h-screen">
-      <CustomSidebar lang={lang} className="hidden md:block bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 fixed left-0 top-0 overflow-y-auto pt-20 p-4" />
+      <CustomSidebar lang={lang} className="hidden md:block not-even:fixed left-0 top-20 overflow-y-auto p-4" />
       <div className="w-full md:flex-1 md:ml-64 min-h-full">
         <div className="max-w-none">
           {children}

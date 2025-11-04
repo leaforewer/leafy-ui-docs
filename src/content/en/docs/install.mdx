@@ -1,0 +1,177 @@
+---
+title: Install
+desc: How to install Leafy UI as a Tailwind CSS plugin or use framework-specific components.
+---
+
+import { Tabs } from 'nextra/components'
+import { Cards } from 'nextra/components'
+
+# Install
+
+Learn how to install and set up Leafy UI in your project. Leafy UI works as a Tailwind CSS plugin or with framework-specific components.
+
+## Prerequisites
+
+Before installing Leafy UI, make sure you have:
+
+- **Node.js** (version 16 or higher)
+- **Tailwind CSS** (version 4.x+) installed in your project
+
+If you don't have Tailwind CSS installed yet, follow the [official Tailwind CSS installation guide](https://tailwindcss.com/docs/installation).
+
+## Installation
+
+### Option 1: Tailwind CSS Plugin
+
+Install Leafy UI as a Tailwind CSS plugin for the complete component library.
+
+<Tabs items={['npm', 'pnpm', 'yarn']}>
+  <Tabs.Tab>
+    ```bash
+    npm install @leafy-ui/core
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    pnpm add @leafy-ui/core
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```bash
+    yarn add @leafy-ui/core
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Option 2: Framework Components
+
+Install framework-specific components for React or Vue.
+
+<Tabs items={['React', 'Vue']}>
+  <Tabs.Tab>
+    <Tabs items={['npm', 'pnpm', 'yarn']}>
+      <Tabs.Tab>
+        ```bash
+        npm install @leafy-ui/react
+        ```
+      </Tabs.Tab>
+      <Tabs.Tab>
+        ```bash
+        pnpm add @leafy-ui/react
+        ```
+      </Tabs.Tab>
+      <Tabs.Tab>
+        ```bash
+        yarn add @leafy-ui/react
+        ```
+      </Tabs.Tab>
+    </Tabs>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    <Tabs items={['npm', 'pnpm', 'yarn']}>
+      <Tabs.Tab>
+        ```bash
+        npm install @leafy-ui/vue
+        ```
+      </Tabs.Tab>
+      <Tabs.Tab>
+        ```bash
+        pnpm add @leafy-ui/vue
+        ```
+      </Tabs.Tab>
+      <Tabs.Tab>
+        ```bash
+        yarn add @leafy-ui/vue
+        ```
+      </Tabs.Tab>
+    </Tabs>
+  </Tabs.Tab>
+</Tabs>
+
+## Setup
+
+### Tailwind CSS Plugin Setup
+
+After installing `@leafy-ui/core`, add the Leafy UI styles to your main CSS file:
+
+```css filename="app.css" {2}
+@import "tailwindcss";
+@import "@leafy-ui/core/style";
+```
+
+### Framework Component Setup
+
+For React or Vue projects, you can import individual components directly:
+
+<Tabs items={['React', 'Vue']}>
+  <Tabs.Tab>
+    ```jsx
+    import { AnimatedLetters, SmallImageCarousel } from '@leafy-ui/react'
+    
+    const images = [
+      'https://picsum.photos/200/300?random=1',
+      'https://picsum.photos/200/300?random=2',
+      'https://picsum.photos/200/300?random=3',
+      'https://picsum.photos/200/300?random=4',
+    ]
+    
+    function App() {
+      return (
+        <div>
+          <AnimatedLetters
+            text="Leafy UI React"
+            className="text-3xl font-semibold uppercase"
+          />
+
+          <SmallImageCarousel images={images} trackStyle="skewed" />
+          <div className="max-w-[175px] mt-4">
+            <SmallImageCarousel
+              images={images}
+              trackStyle="line"
+              className="carousel-track-bg-cyan-200"
+            />
+          </div>
+        </div>
+      )
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```vue
+    <template>
+      <div>
+        <LeafAnimatedLetters
+          text="Leafy UI Vue"
+          class="text-3xl font-semibold uppercase"
+        />
+
+        <LeafSmallImageCarousel :images="images" track-style="skewed" />
+        <div class="max-w-[175px] mt-4">
+          <LeafSmallImageCarousel
+            :images="images"
+            track-style="line"
+            class="carousel-track-bg-cyan-200"
+          />
+        </div>
+      </div>
+    </template>
+    
+    <script setup>
+    import { LeafAnimatedLetters, LeafSmallImageCarousel } from '@leafy-ui/vue'
+    
+    const images = [
+      'https://picsum.photos/200/300?random=1',
+      'https://picsum.photos/200/300?random=2',
+      'https://picsum.photos/200/300?random=3',
+      'https://picsum.photos/200/300?random=4',
+    ]
+    </script>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Aaaand you are good to go!
+
+Browse the [Components](/en/components) section to explore all available components
+
+Need more help? Check out our [GitHub repository](https://github.com/leaforewer/leafy-ui) or [open an issue](https://github.com/leaforewer/leafy-ui/issues).

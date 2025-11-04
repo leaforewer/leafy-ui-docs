@@ -1,0 +1,396 @@
+---
+title: Product Image Slider
+desc: Interactive product image slider with thumbnails, zoom, and customizable tracks for e-commerce displays.
+classnames:
+  component:
+    - class: product-image-slider
+      desc: Main product image slider web component container
+  attributes:
+    - class: strip
+      desc: Display thumbnail strip below main image
+    - class: zoom
+      desc: Enable tap-to-zoom fullscreen
+    - class: tracks
+      desc: Show track indicators for navigation
+    - class: zoomBtn
+      desc: Display zoom button overlay
+    - class: trackstyle
+      desc: Track indicator style ("pill", "dot", "line", "skewed")
+  utilities:
+    - class: carousel-track-bg-[color]
+      desc: Set track indicator background color
+    - class: carousel-active-track-bg-[color]
+      desc: Set active track indicator background color
+    - class: carousel-thumb-active-border-[color]
+      desc: Set active thumbnail border color
+---
+
+import { Tabs } from 'nextra/components'
+
+# Product Image Slider
+
+Interactive product image slider with thumbnails, zoom functionality, and customizable track indicators. Perfect for e-commerce product galleries and detailed image viewing.
+
+> **SSR-safe:** This component reads images from the `data-images` attribute or from direct child `<img>` elements. No client mutation is required, so it avoids hydration mismatches.
+
+## Class Reference
+
+| Class Name | Type | Description |
+| --- | --- | --- |
+| `product-image-slider` | Component | Main product image slider web component container |
+
+### Attributes
+
+| Attribute | Type | Description |
+| --- | --- | --- |
+| `strip` | Boolean | Display thumbnail strip below main image |
+| `zoom` | Boolean | Enable tap-to-zoom fullscreen (single tap/click on image area) |
+| `tracks` | Boolean | Show track indicators for navigation |
+| `zoomBtn` | Boolean | Display zoom button overlay (click to fullscreen) |
+| `trackstyle` | String | Track indicator style: `"pill"`, `"line"`, `"skewed"`, `"dot"` |
+
+### Utility Classes
+
+| Class Name | Description |
+| --- | --- |
+| `carousel-track-bg-[color]` | Set track indicator background color |
+| `carousel-active-track-bg-[color]` | Set active track indicator background color |
+| `carousel-thumb-active-border-[color]` | Set active thumbnail border color |
+
+## Setup
+
+<Tabs items={['JavaScript']}>
+  <Tabs.Tab>
+    First, install the Leafy UI core package:
+
+    ```bash
+    npm install @leafy-ui/core
+    ```
+
+    Import CSS first:
+
+    ```css filename="app.css" {2}
+    @import "tailwindcss";
+    @import "@leafy-ui/core/style";
+    ```
+
+    Then import the web component:
+
+    ```js
+    import '@leafy-ui/core/components/product-image-slider';
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Basic Product Image Slider
+
+**Using `data-images` (no JS needed):**
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 max-w-96">
+      <product-image-slider
+        style={{height: '220px', width: '100%', borderRadius: 8, overflow: 'hidden'}}
+        data-images='[
+          {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=60","alt":"Front"},
+          {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1200&q=60","alt":"Side"},
+          {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60","alt":"Detail"}
+        ]'
+      />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <product-image-slider
+      style="height:220px;width:100%;border-radius:8px;overflow:hidden"
+      data-images='[
+        {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=60","alt":"Front"},
+        {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1200&q=60","alt":"Side"},
+        {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60","alt":"Detail"}
+      ]'
+    ></product-image-slider>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+**Using child `<img>` elements (no attributes):**
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 max-w-96">
+      <product-image-slider style={{height: '220px', width: '100%', borderRadius: 8, overflow: 'hidden'}}>
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=60" alt="Front" />
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1200&q=60" alt="Side" />
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60" alt="Detail" />
+      </product-image-slider>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <product-image-slider style="height:220px;width:100%;border-radius:8px;overflow:hidden">
+      <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=60" alt="Front" />
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1200&q=60" alt="Side" />
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60" alt="Detail" />
+    </product-image-slider>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Product Slider with Strip
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 max-w-48">
+      <product-image-slider
+        strip
+        zoom
+        trackstyle="pill"
+        class="carousel-track-bg-lime-400 carousel-active-track-bg-red-500 carousel-thumb-active-border-red-500"
+        style={{height: '200px', width: '100%', borderRadius: 8, overflow: 'hidden'}}
+        data-images='[
+          {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=800&q=60","alt":"Side"},
+          {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=60","alt":"Detail"},
+          {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=60","alt":"Front"}
+        ]'
+      />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <product-image-slider
+      strip
+      zoom
+      trackstyle="pill"
+      class="carousel-track-bg-lime-400 carousel-active-track-bg-red-500 carousel-thumb-active-border-red-500"
+      style="height:200px;width:100%;border-radius:8px;overflow:hidden"
+      data-images='[
+        {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=800&q=60","alt":"Side"},
+        {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=60","alt":"Detail"},
+        {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=60","alt":"Front"}
+      ]'
+    ></product-image-slider>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Full-Featured Product Slider
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <product-image-slider
+        tracks
+        zoomBtn
+        trackstyle="pill"
+        class="carousel-track-bg-lime-400 carousel-active-track-bg-red-500 carousel-thumb-active-border-red-500"
+        style={{height: '300px', width: '100%', borderRadius: 8, overflow: 'hidden'}}
+        data-images='[
+          {"url":"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=60","alt":"Product 1"},
+          {"url":"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1200&q=60","alt":"Product 2"},
+          {"url":"https://images.unsplash.com/photo-1515705576963-95cad62945b6?w=1200&q=60","alt":"Product 3"},
+          {"url":"https://images.unsplash.com/photo-1519744346361-efe34d3c1b69?w=1200&q=60","alt":"Product 4"}
+        ]'
+      />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <product-image-slider
+      tracks
+      zoomBtn
+      trackstyle="pill"
+      class="carousel-track-bg-lime-400 carousel-active-track-bg-red-500 carousel-thumb-active-border-red-500"
+      style="height:300px;width:100%;border-radius:8px;overflow:hidden"
+      data-images='[
+        {"url":"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=60","alt":"Product 1"},
+        {"url":"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1200&q=60","alt":"Product 2"},
+        {"url":"https://images.unsplash.com/photo-1515705576963-95cad62945b6?w=1200&q=60","alt":"Product 3"},
+        {"url":"https://images.unsplash.com/photo-1519744346361-efe34d3c1b69?w=1200&q=60","alt":"Product 4"}
+      ]'
+    ></product-image-slider>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Track Style Variations
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 space-y-4">
+      <div>
+        <h4 className="text-sm font-medium mb-2">Pill Style</h4>
+        <div className="max-w-64">
+          <product-image-slider
+            tracks
+            trackstyle="pill"
+            class="carousel-track-bg-gray-200 carousel-active-track-bg-blue-500"
+            style={{height: '150px', width: '100%', borderRadius: 6, overflow: 'hidden'}}
+            data-images='[
+              {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&q=60","alt":"Detail"},
+              {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1000&q=60","alt":"Front"},
+              {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1000&q=60","alt":"Side"}
+            ]'
+          />
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Dot Style</h4>
+        <div className="max-w-64">
+          <product-image-slider
+            tracks
+            trackstyle="dot"
+            class="carousel-track-bg-gray-200 carousel-active-track-bg-green-500"
+            style={{height: '150px', width: '100%', borderRadius: 6, overflow: 'hidden'}}
+            data-images='[
+              {"url":"https://images.unsplash.com/photo-1515705576963-95cad62945b6?w=1000&q=60","alt":"Model 3"},
+              {"url":"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1000&q=60","alt":"Model 2"},
+              {"url":"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1000&q=60","alt":"Model 1"}
+            ]'
+          />
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Line Style</h4>
+        <div className="max-w-64">
+          <product-image-slider
+            tracks
+            trackstyle="line"
+            class="carousel-track-bg-gray-200 carousel-active-track-bg-purple-500"
+            style={{height: '150px', width: '100%', borderRadius: 6, overflow: 'hidden'}}
+            data-images='[
+              {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1000&q=60","alt":"Front"},
+              {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&q=60","alt":"Detail"},
+              {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1000&q=60","alt":"Side"}
+            ]'
+          />
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Skewed Style</h4>
+        <div className="max-w-64">
+          <product-image-slider
+            tracks
+            trackstyle="skewed"
+            class="carousel-track-bg-gray-200 carousel-active-track-bg-amber-500"
+            style={{height: '150px', width: '100%', borderRadius: 6, overflow: 'hidden'}}
+            data-images='[
+              {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&q=60","alt":"Detail"},
+              {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1000&q=60","alt":"Front"},
+              {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1000&q=60","alt":"Side"}
+            ]'
+          />
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- See the preview for examples; each uses data-images and different trackstyle values. -->
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## Custom Color Combinations
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <h4 className="text-sm font-medium mb-2">Ocean Theme</h4>
+        <product-image-slider
+          strip
+          zoom
+          trackstyle="pill"
+          class="carousel-track-bg-blue-200 carousel-active-track-bg-blue-600 carousel-thumb-active-border-blue-600"
+          style={{height: '180px', width: '100%', borderRadius: 8, overflow: 'hidden'}}
+          data-images='[
+            {"url":"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1200&q=60","alt":"Ocean 1"},
+            {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60","alt":"Ocean 2"},
+            {"url":"https://images.unsplash.com/photo-1515705576963-95cad62945b6?w=1200&q=60","alt":"Ocean 3"}
+          ]'
+        />
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Sunset Theme</h4>
+        <product-image-slider
+          strip
+          zoom
+          trackstyle="pill"
+          class="carousel-track-bg-orange-200 carousel-active-track-bg-red-500 carousel-thumb-active-border-red-500"
+          style={{height: '180px', width: '100%', borderRadius: 8, overflow: 'hidden'}}
+          data-images='[
+            {"url":"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=60","alt":"Sunset 1"},
+            {"url":"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1200&q=60","alt":"Sunset 2"},
+            {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60","alt":"Sunset 3"}
+          ]'
+        />
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Forest Theme</h4>
+        <product-image-slider
+          tracks
+          zoomBtn
+          trackstyle="dot"
+          class="carousel-track-bg-green-200 carousel-active-track-bg-green-700 carousel-thumb-active-border-green-700"
+          style={{height: '180px', width: '100%', borderRadius: 8, overflow: 'hidden'}}
+          data-images='[
+            {"url":"https://images.unsplash.com/photo-1519744346361-efe34d3c1b69?w=1200&q=60","alt":"Forest 1"},
+            {"url":"https://images.unsplash.com/photo-1515705576963-95cad62945b6?w=1200&q=60","alt":"Forest 2"},
+            {"url":"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1200&q=60","alt":"Forest 3"}
+          ]'
+        />
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Midnight Theme</h4>
+        <product-image-slider
+          tracks
+          zoomBtn
+          trackstyle="line"
+          class="carousel-track-bg-gray-600 carousel-active-track-bg-purple-400 carousel-thumb-active-border-purple-400"
+          style={{height: '180px', width: '100%', borderRadius: 8, overflow: 'hidden'}}
+          data-images='[
+            {"url":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=60","alt":"Midnight 1"},
+            {"url":"https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60","alt":"Midnight 2"},
+            {"url":"https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1200&q=60","alt":"Midnight 3"}
+          ]'
+        />
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- Each theme uses utility classes to tint tracks and active states. -->
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+---
+
+## JavaScript API
+
+You can still set images **programmatically** (prop is bound to `data-images` under the hood):
+
+```js
+const slider = document.querySelector('product-image-slider');
+slider.images = [
+  { url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=60', alt: 'Front view' },
+  { url: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1200&q=60', alt: 'Side view' },
+  { url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=60', alt: 'Detail' }
+];
+```

@@ -1,0 +1,251 @@
+---
+title: Animated Lists
+desc: Animated Lists provides smooth staggered animations for list items with customizable delays and easing effects.
+classnames:
+  component:
+    - class: leaf-stagger
+      desc: Base class for creating staggered animations on list items
+  utility:
+    - class: leaf-stagger > li
+      desc: Individual list items with animation delay based on --i variable
+---
+
+import { Tabs } from 'nextra/components'
+import { RetryContainer } from '@/components/RetryContainer'
+
+# Animated Lists
+
+Animated Lists provides smooth staggered animations for list items. Each item animates in sequence with customizable delays, creating engaging reveal effects for dynamic content.
+
+## Class Reference
+
+| Class Name | Type | Description |
+|------------|------|-------------|
+| `leaf-stagger` | Component | Base class for creating staggered animations on list items |
+| `leaf-stagger > li` | Utility | Individual list items with animation delay based on --i variable |
+
+## Setup
+
+<Tabs items={['CSS']}>
+  <Tabs.Tab>
+    ```css
+    @import "@leafy-ui/core/style";
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Basic Animated List
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <RetryContainer>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">✨ Watch the staggered slide-in animation</p>
+        <ul className="leaf-stagger">
+          <li className="p-3 bg-neutral-100 dark:bg-neutral-800 text-gray-800 dark:text-white rounded mb-2" style={{ '--i': 0 }}>
+            First Item
+          </li>
+          <li className="p-3 bg-neutral-100 dark:bg-neutral-800 text-gray-800 dark:text-white rounded mb-2" style={{ '--i': 1 }}>
+            Second Item
+          </li>
+          <li className="p-3 bg-neutral-100 dark:bg-neutral-800 text-gray-800 dark:text-white rounded mb-2" style={{ '--i': 2 }}>
+            Third Item
+          </li>
+          <li className="p-3 bg-neutral-100 dark:bg-neutral-800 text-gray-800 dark:text-white rounded mb-2" style={{ '--i': 3 }}>
+            Fourth Item
+          </li>
+          <li className="p-3 bg-neutral-100 dark:bg-neutral-800 text-gray-800 dark:text-white rounded mb-2" style={{ '--i': 4 }}>
+            Fifth Item
+          </li>
+        </ul>
+      </RetryContainer>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="leaf-stagger leaf-anim-slide-in">
+      <li class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded mb-2" style="--i: 0">
+        First Item
+      </li>
+      <li class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded mb-2" style="--i: 1">
+        Second Item
+      </li>
+      <li class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded mb-2" style="--i: 2">
+        Third Item
+      </li>
+      <li class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded mb-2" style="--i: 3">
+        Fourth Item
+      </li>
+      <li class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded mb-2" style="--i: 4">
+        Fifth Item
+      </li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Shopping List
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <RetryContainer>
+        <h4 className="text-lg font-semibold mb-3">Shopping List</h4>
+        <ul className="leaf-stagger leaf-anim-scale-in space-y-2">
+          <li className="flex items-center p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg" style={{ '--i': 0 }}>
+            <span className="text-green-600 dark:text-green-400 mr-3">🥕</span>
+            <span className="text-gray-800 dark:text-white">Carrots</span>
+          </li>
+          <li className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg" style={{ '--i': 1 }}>
+            <span className="text-blue-600 dark:text-blue-400 mr-3">🥛</span>
+            <span className="text-gray-800 dark:text-white">Milk</span>
+          </li>
+          <li className="flex items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg" style={{ '--i': 2 }}>
+            <span className="text-yellow-600 dark:text-yellow-400 mr-3">🍞</span>
+            <span className="text-gray-800 dark:text-white">Bread</span>
+          </li>
+          <li className="flex items-center p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg" style={{ '--i': 3 }}>
+            <span className="text-red-600 dark:text-red-400 mr-3">🍅</span>
+            <span className="text-gray-800 dark:text-white">Tomatoes</span>
+          </li>
+          <li className="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg" style={{ '--i': 4 }}>
+            <span className="text-purple-600 dark:text-purple-400 mr-3">🥩</span>
+            <span className="text-gray-800 dark:text-white">Chicken</span>
+          </li>
+        </ul>
+      </RetryContainer>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="leaf-stagger leaf-anim-scale-in space-y-2">
+      <li class="flex items-center p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg" style="--i: 0">
+        <span class="text-green-600 dark:text-green-400 mr-3">🥕</span>
+        <span class="text-gray-800 dark:text-white">Carrots</span>
+      </li>
+      <li class="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg" style="--i: 1">
+        <span class="text-blue-600 dark:text-blue-400 mr-3">🥛</span>
+        <span class="text-gray-800 dark:text-white">Milk</span>
+      </li>
+      <li class="flex items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg" style="--i: 2">
+        <span class="text-yellow-600 dark:text-yellow-400 mr-3">🍞</span>
+        <span class="text-gray-800 dark:text-white">Bread</span>
+      </li>
+      <li class="flex items-center p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg" style="--i: 3">
+        <span class="text-red-600 dark:text-red-400 mr-3">🍅</span>
+        <span class="text-gray-800 dark:text-white">Tomatoes</span>
+      </li>
+      <li class="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg" style="--i: 4">
+        <span class="text-purple-600 dark:text-purple-400 mr-3">🥩</span>
+        <span class="text-gray-800 dark:text-white">Chicken</span>
+      </li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Card List Animation
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <RetryContainer>
+        <ul className="leaf-stagger leaf-anim-slide-in">
+          <li className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg mb-3 shadow-sm" style={{ '--i': 0 }}>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Card Title 1</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Description for the first card item</p>
+          </li>
+          <li className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg mb-3 shadow-sm" style={{ '--i': 1 }}>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Card Title 2</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Description for the second card item</p>
+          </li>
+          <li className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg mb-3 shadow-sm" style={{ '--i': 2 }}>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Card Title 3</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">Description for the third card item</p>
+          </li>
+        </ul>
+      </RetryContainer>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <ul class="leaf-stagger leaf-anim-slide-in">
+      <li class="p-4 bg-white dark:bg-gray-800 border rounded-lg mb-3 shadow-sm" style="--i: 0">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Card Title 1</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">Description for the first card item</p>
+      </li>
+      <li class="p-4 bg-white dark:bg-gray-800 border rounded-lg mb-3 shadow-sm" style="--i: 1">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Card Title 2</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">Description for the second card item</p>
+      </li>
+      <li class="p-4 bg-white dark:bg-gray-800 border rounded-lg mb-3 shadow-sm" style="--i: 2">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-1">Card Title 3</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">Description for the third card item</p>
+      </li>
+    </ul>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Navigation Menu Animation
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <RetryContainer>
+        <nav className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+          <ul className="leaf-stagger leaf-anim-scale-in">
+            <li style={{ '--i': 0 }}>
+              <a href="#" className="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 rounded transition-colors">Home</a>
+            </li>
+            <li style={{ '--i': 1 }}>
+              <a href="#" className="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 rounded transition-colors">About</a>
+            </li>
+            <li style={{ '--i': 2 }}>
+              <a href="#" className="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 rounded transition-colors">Services</a>
+            </li>
+            <li style={{ '--i': 3 }}>
+              <a href="#" className="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 rounded transition-colors">Portfolio</a>
+            </li>
+            <li style={{ '--i': 4 }}>
+              <a href="#" className="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 rounded transition-colors">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </RetryContainer>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <nav class="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+      <ul class="leaf-stagger leaf-anim-scale-in">
+        <li style="--i: 0">
+          <a href="#" class="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white rounded">Home</a>
+        </li>
+        <li style="--i: 1">
+          <a href="#" class="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white rounded">About</a>
+        </li>
+        <li style="--i: 2">
+          <a href="#" class="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white rounded">Services</a>
+        </li>
+        <li style="--i: 3">
+          <a href="#" class="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white rounded">Portfolio</a>
+        </li>
+        <li style="--i: 4">
+          <a href="#" class="block p-3 text-gray-700 dark:text-gray-300 hover:bg-white rounded">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## CSS Custom Properties
+
+- **`--i`** - Index variable that controls the animation delay for each list item
+
+## Usage Notes
+
+- Each `<li>` element requires a `--i` CSS custom property with its index value.
+- Works with any list content: text, cards, navigation items, etc.
+- Animations trigger on page load or you can control it with your JS.

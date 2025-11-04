@@ -99,13 +99,11 @@ export default function HomepageHero() {
               <StackItem className="icon-[simple-icons--react]" />
               <StackItem className="icon-[simple-icons--tailwindcss]" />
               <StackItem className="icon-[teenyicons--framer-outline]" />
-              <StackItem className="icon-[simple-icons--shadcnui]" />
               <StackItem className="icon-[simple-icons--typescript]" />
               <StackItem className="icon-[fa6-brands--sass]" />
               <StackItem className="icon-[teenyicons--eslint-outline]" />
               <StackItem className="icon-[simple-icons--postcss]" />
               <StackItem className="icon-[simple-icons--nextra]" />
-              <StackItem className="icon-[line-md--iconify1]" />
             </Marquee>
           </div>
         </Section>

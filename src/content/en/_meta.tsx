@@ -3,6 +3,9 @@ import { TitleBadge } from "@/components/TitleBadge";
 export default {
   index: {
     display: 'hidden',
+    theme: {
+      breadcrumb: false,
+    }
   },
   docs: {
     title: 'Docs',

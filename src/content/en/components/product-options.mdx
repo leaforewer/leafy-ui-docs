@@ -1,0 +1,436 @@
+---
+title: Product Options
+desc: Product Options provides interactive selection components for colors, variants, sizes, and other product attributes with modern styling and accessibility features.
+classnames:
+  component:
+    - class: product-options
+      desc: Base container for product option groups with proper spacing and layout
+  modifier:
+    - class: options-color
+      desc: Enables color-specific option styling with CSS custom properties
+    - class: option-active-border-black
+      desc: Sets active option border color to black
+    - class: option-active-border-blue
+      desc: Sets active option border color to blue
+    - class: option-active-border-red
+      desc: Sets active option border color to red
+  utility:
+    - class: option
+      desc: Individual option container with proper radio input styling
+    - class: option[data-checked]
+      desc: Checked state styling for option containers
+    - class: option input[type="radio"]
+      desc: Hidden radio input with accessibility features
+    - class: option label
+      desc: Clickable label area with hover and focus states
+---
+
+import { Tabs } from 'nextra/components'
+
+# Product Options
+
+Product Options provides interactive selection components for colors, variants, sizes, and other product attributes. The system supports multiple option types including color swatches, image variants, and text-based selections with full accessibility support.
+
+## Class Reference
+
+| Class Name | Type | Description |
+|------------|------|-------------|
+| `product-options` | Component | Base container for product option groups with proper spacing and layout |
+| `options-color` | Modifier | Enables color-specific option styling with CSS custom properties |
+| `option` | Component | Individual option container with proper radio input styling |
+| `option-active-border-*` | Modifier | Sets active option border color |
+| `option[data-checked]` | State | Checked state styling for option containers |
+| `option input[type="radio"]` | Utility | Hidden radio input with accessibility features |
+| `option label` | Utility | Clickable label area with hover and focus states |
+
+## Setup
+
+<Tabs items={['CSS']}>
+  <Tabs.Tab>
+    ```css
+    @import "@leafy-ui/core/style";
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Color Options
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div
+            className="product-options options-color option-active-border-black"
+            role="radiogroup"
+            aria-label="Color"
+          >
+            <div className="option" style={{ "--option-color": "#f87171" }}>
+              <input type="radio" name="color" id="color-red" value="red" />
+              <label htmlFor="color-red">
+                <span>Red</span>
+              </label>
+            </div>
+
+            <div className="option" style={{ "--option-color": "#60a5fa" }}>
+              <input type="radio" name="color" id="color-blue" value="blue" />
+              <label htmlFor="color-blue">
+                <span>Blue</span>
+              </label>
+            </div>
+
+            <div className="option" style={{ "--option-color": "#22c55e" }}>
+              <input type="radio" name="color" id="color-green" value="green" />
+              <label htmlFor="color-green">
+                <span>Green</span>
+              </label>
+            </div>
+
+            <div className="option" style={{ "--option-color": "#ecf000ff" }}>
+              <input type="radio" name="color" id="color-yellow" value="yellow" />
+              <label htmlFor="color-yellow">
+                <span>Yellow</span>
+              </label>
+            </div>
+          </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div
+      class="product-options options-color option-active-border-black"
+      role="radiogroup"
+      aria-label="Color"
+    >
+      <div class="option" style="--option-color: #f87171">
+        <input type="radio" name="color" id="color-red" value="red" />
+        <label for="color-red">
+          <span>Red</span>
+        </label>
+      </div>
+
+      <div class="option" style="--option-color: #60a5fa">
+        <input type="radio" name="color" id="color-blue" value="blue" />
+        <label for="color-blue">
+          <span>Blue</span>
+        </label>
+      </div>
+
+      <div class="option" style="--option-color: #22c55e">
+        <input type="radio" name="color" id="color-green" value="green" />
+        <label for="color-green">
+          <span>Green</span>
+        </label>
+      </div>
+
+      <div class="option" style="--option-color: #000000">
+        <input type="radio" name="color" id="color-black" value="black" />
+        <label for="color-black">
+          <span>Black</span>
+        </label>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Image Variant Options
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <div
+            class="product-options"
+            role="radiogroup"
+            aria-label="Variant"
+          >
+            <div class="option">
+              <input type="radio" name="variant" id="variant-1" value="1" />
+              <label for="variant-1">
+                <img
+                  src="https://placehold.co/600x400?text=Variant+1"
+                  alt="Variant 1"
+                />
+                <span>Variant 1</span>
+              </label>
+            </div>
+            <div class="option">
+              <input type="radio" name="variant" id="variant-2" value="2" />
+              <label for="variant-2">
+                <img
+                  src="https://placehold.co/600x400?text=Variant+2"
+                  alt="Variant 2"
+                />
+                <span>Variant 2</span>
+              </label>
+            </div>
+            <div class="option">
+              <input type="radio" name="variant" id="variant-3" value="3" />
+              <label for="variant-3">
+                <img
+                  src="https://placehold.co/600x400?text=Variant+3"
+                  alt="Variant 3"
+                />
+                <span>Variant 3</span>
+              </label>
+            </div>
+          </div>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div
+      class="product-options"
+      role="radiogroup"
+      aria-label="Variant"
+    >
+      <div class="option">
+        <input type="radio" name="variant" id="variant-1" value="1" />
+        <label for="variant-1">
+          <img
+            src="https://placehold.co/600x400?text=Variant+1"
+            alt="Variant 1"
+          />
+          <span>Variant 1</span>
+        </label>
+      </div>
+      <div class="option">
+        <input type="radio" name="variant" id="variant-2" value="2" />
+        <label for="variant-2">
+          <img
+            src="https://placehold.co/600x400?text=Variant+2"
+            alt="Variant 2"
+          />
+          <span>Variant 2</span>
+        </label>
+      </div>
+      <div class="option">
+        <input type="radio" name="variant" id="variant-3" value="3" />
+        <label for="variant-3">
+          <img
+            src="https://placehold.co/600x400?text=Variant+3"
+            alt="Variant 3"
+          />
+          <span>Variant 3</span>
+        </label>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Size Options
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <div
+            class="product-options"
+            role="radiogroup"
+            aria-label="Choose size"
+          >
+            <div class="option">
+              <input type="radio" name="size" id="size-s" value="S" />
+              <label for="size-s">S</label>
+            </div>
+            <div class="option">
+              <input type="radio" name="size" id="size-m" value="M" />
+              <label for="size-m">M</label>
+            </div>
+            <div class="option">
+              <input type="radio" name="size" id="size-l" value="L" />
+              <label for="size-l">L</label>
+            </div>
+            <div class="option">
+              <input type="radio" name="size" id="size-xl" value="XL" />
+              <label for="size-xl">XL</label>
+            </div>
+          </div>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div
+      class="product-options"
+      role="radiogroup"
+      aria-label="Choose size"
+    >
+      <div class="option">
+        <input type="radio" name="size" id="size-s" value="S" />
+        <label for="size-s">S</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="size" id="size-m" value="M" />
+        <label for="size-m">M</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="size" id="size-l" value="L" />
+        <label for="size-l">L</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="size" id="size-xl" value="XL" />
+        <label for="size-xl">XL</label>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Different Border Colors
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+              <h4 style="margin-bottom: 8px;">Black Border</h4>
+              <div
+                class="product-options options-color option-active-border-black"
+                role="radiogroup"
+                aria-label="Color with black border"
+              >
+                <div class="option" style="--option-color: #f87171">
+                  <input type="radio" name="color-black" id="color-red-black" value="red" />
+                  <label for="color-red-black">
+                    <span>Red</span>
+                  </label>
+                </div>
+                <div class="option" style="--option-color: #60a5fa">
+                  <input type="radio" name="color-black" id="color-blue-black" value="blue" />
+                  <label for="color-blue-black">
+                    <span>Blue</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 style="margin-bottom: 8px;">Blue Border</h4>
+              <div
+                class="product-options options-color option-active-border-blue-500"
+                role="radiogroup"
+                aria-label="Color with blue border"
+              >
+                <div class="option" style="--option-color: #f87171">
+                  <input type="radio" name="color-blue" id="color-red-blue" value="red" />
+                  <label for="color-red-blue">
+                    <span>Red</span>
+                  </label>
+                </div>
+                <div class="option" style="--option-color: #22c55e">
+                  <input type="radio" name="color-blue" id="color-green-blue" value="green" />
+                  <label for="color-green-blue">
+                    <span>Green</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 style="margin-bottom: 8px;">Red Border</h4>
+              <div
+                class="product-options options-color option-active-border-red-500"
+                role="radiogroup"
+                aria-label="Color with red border"
+              >
+                <div class="option" style="--option-color: #60a5fa">
+                  <input type="radio" name="color-red" id="color-blue-red" value="blue" />
+                  <label for="color-blue-red">
+                    <span>Blue</span>
+                  </label>
+                </div>
+                <div class="option" style="--option-color: #000000">
+                  <input type="radio" name="color-red" id="color-black-red" value="black" />
+                  <label for="color-black-red">
+                    <span>Black</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div
+      class="product-options options-color option-active-border-black"
+      role="radiogroup"
+      aria-label="Color with black border"
+    >
+      <div class="option" style="--option-color: #f87171">
+        <input type="radio" name="color-black" id="color-red-black" value="red" />
+        <label for="color-red-black">
+          <span>Red</span>
+        </label>
+      </div>
+      <div class="option" style="--option-color: #60a5fa">
+        <input type="radio" name="color-black" id="color-blue-black" value="blue" />
+        <label for="color-blue-black">
+          <span>Blue</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Blue Border -->
+    <div
+      class="product-options options-color option-active-border-blue"
+      role="radiogroup"
+      aria-label="Color with blue border"
+    >
+      <div class="option" style="--option-color: #f87171">
+        <input type="radio" name="color-blue" id="color-red-blue" value="red" />
+        <label for="color-red-blue">
+          <span>Red</span>
+        </label>
+      </div>
+      <div class="option" style="--option-color: #22c55e">
+        <input type="radio" name="color-blue" id="color-green-blue" value="green" />
+        <label for="color-green-blue">
+          <span>Green</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Red Border -->
+    <div
+      class="product-options options-color option-active-border-red"
+      role="radiogroup"
+      aria-label="Color with red border"
+    >
+      <div class="option" style="--option-color: #60a5fa">
+        <input type="radio" name="color-red" id="color-blue-red" value="blue" />
+        <label for="color-blue-red">
+          <span>Blue</span>
+        </label>
+      </div>
+      <div class="option" style="--option-color: #000000">
+        <input type="radio" name="color-red" id="color-black-red" value="black" />
+        <label for="color-black-red">
+          <span>Black</span>
+        </label>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Accessibility Features
+
+- **ARIA Support**: Uses `role="radiogroup"` and `aria-label` for screen readers
+- **Keyboard Navigation**: Full keyboard support for radio button groups
+- **Focus Management**: Proper focus indicators and tab navigation
+- **Semantic HTML**: Uses proper `input[type="radio"]` and `label` elements
+
+### CSS Custom Properties
+
+- **`--option-color`** - Sets the color value for color swatch options (used with `.options-color`)

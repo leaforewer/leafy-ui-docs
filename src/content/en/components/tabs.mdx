@@ -1,0 +1,282 @@
+---
+title: Tabs
+desc: Interactive tab navigation with customizable styles and smooth transitions between content panels.
+classnames:
+  component:
+    - class: tabs
+      desc: Main tabs container
+    - class: tab
+      desc: Individual tab button (applied to radio input)
+    - class: tab-content
+      desc: Content panel for each tab
+  modifier:
+    - class: tabs-border
+      desc: Add border styling to tabs
+    - class: tabs-lift
+      desc: Elevated tab style with shadow effect
+  utilities:
+    - class: tabs-lift-border-[color]
+      desc: Set custom border color for lifted tabs
+    - class: tabs-bg-[color]
+      desc: Set tab background color
+    - class: tabs-fg-active-[color]
+      desc: Set active tab text color
+---
+
+import { Tabs } from 'nextra/components'
+
+# Tabs
+
+Interactive tab navigation with customizable styles and smooth transitions. Built with radio inputs for accessibility and keyboard navigation support.
+
+## Class Reference
+
+| Class Name | Type | Description |
+|------------|------|-------------|
+| `tabs` | Component | Main tabs container |
+| `tab` | Component | Individual tab button (applied to radio input) |
+| `tab-content` | Component | Content panel for each tab |
+
+### Modifiers
+
+| Class Name | Description |
+|------------|-------------|
+| `tabs-border` | Add border styling to tabs |
+| `tabs-lift` | Elevated tab style with shadow effect |
+
+### Utility Classes
+
+| Class Name | Description |
+|------------|-------------|
+| `tabs-lift-border-[color]` | Set custom border color for lifted tabs |
+| `tabs-bg-[color]` | Set tab background color |
+| `tabs-fg-[color]` | Set tab text color |
+| `tabs-fg-active-[color]` | Set active tab text color |
+| `tabs-border-[color]` | Set border color for bordered tabs |
+
+## Setup
+
+<Tabs items={['CSS']}>
+  <Tabs.Tab>
+    ```css
+    @import "@leafy-ui/core/style";
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Basic Tabs
+
+Simple tabs with border styling:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="tabs tabs-border">
+        <input type="radio" name="demo_tabs_1" className="tab" aria-label="Tab 1" defaultChecked />
+        <div className="tab-content text-black bg-neutral-100 p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2">Content for Tab 1</h4>
+          <p className="text-sm">This is the content area for the first tab. You can put any content here including text, images, forms, or other components.</p>
+        </div>
+
+        <input type="radio" name="demo_tabs_1" className="tab" aria-label="Tab 2" />
+        <div className="tab-content text-black bg-neutral-100 p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2">Content for Tab 2</h4>
+          <p className="text-sm">This is the second tab's content. Each tab can have completely different content and styling.</p>
+        </div>
+
+        <input type="radio" name="demo_tabs_1" className="tab" aria-label="Tab 3" />
+        <div className="tab-content text-black bg-neutral-100 p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2">Content for Tab 3</h4>
+          <p className="text-sm">The third tab content goes here. Tabs automatically handle the show/hide logic using CSS.</p>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tabs tabs-border">
+      <input type="radio" name="my_tabs_1" class="tab" aria-label="Tab 1" checked />
+      <div class="tab-content text-black bg-neutral-100 p-10">Tab content 1</div>
+
+      <input type="radio" name="my_tabs_1" class="tab" aria-label="Tab 2" />
+      <div class="tab-content text-black bg-neutral-100 p-10">Tab content 2</div>
+
+      <input type="radio" name="my_tabs_1" class="tab" aria-label="Tab 3" />
+      <div class="tab-content text-black bg-neutral-100 p-10">Tab content 3</div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Lifted Tabs
+
+Elevated tabs with shadow effect for a more modern look:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="tabs tabs-lift">
+        <input type="radio" name="demo_tabs_2" className="tab" aria-label="Overview" />
+        <div className="tab-content bg-neutral-100 text-black p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2">Overview</h4>
+          <p className="text-sm">Product overview and key features are displayed here with the lifted tab style.</p>
+        </div>
+
+        <input type="radio" name="demo_tabs_2" className="tab" aria-label="Specifications" defaultChecked />
+        <div className="tab-content bg-neutral-100 text-black p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2">Specifications</h4>
+          <p className="text-sm">Technical specifications and detailed information about the product.</p>
+        </div>
+
+        <input type="radio" name="demo_tabs_2" className="tab" aria-label="Reviews" />
+        <div className="tab-content bg-neutral-100 text-black p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2">Reviews</h4>
+          <p className="text-sm">Customer reviews and ratings are shown in this tab panel.</p>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tabs tabs-lift">
+      <input type="radio" name="my_tabs_2" class="tab" aria-label="Tab 1" />
+      <div class="tab-content bg-neutral-100 text-black p-10">Tab content 1</div>
+
+      <input type="radio" name="my_tabs_2" class="tab" aria-label="Tab 2" checked />
+      <div class="tab-content bg-neutral-100 text-black p-10">Tab content 2</div>
+
+      <input type="radio" name="my_tabs_2" class="tab" aria-label="Tab 3" />
+      <div class="tab-content bg-neutral-100 text-black p-10">Tab content 3</div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Custom Styled Tabs
+
+Tabs with custom colors and styling using utility classes:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="tabs tabs-lift tabs-lift-border-lime-300 tabs-bg-black tabs-fg-active-white">
+        <input type="radio" name="demo_tabs_3" className="tab" aria-label="Dashboard" />
+        <div className="tab-content bg-black text-white p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2 text-lime-300">Dashboard</h4>
+          <p className="text-sm text-gray-300">Your main dashboard with key metrics and recent activity.</p>
+        </div>
+
+        <input type="radio" name="demo_tabs_3" className="tab" aria-label="Analytics" defaultChecked />
+        <div className="tab-content bg-black text-white p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2 text-lime-300">Analytics</h4>
+          <p className="text-sm text-gray-300">Detailed analytics and insights about your data and performance.</p>
+        </div>
+
+        <input type="radio" name="demo_tabs_3" className="tab" aria-label="Settings" />
+        <div className="tab-content bg-black text-white p-4 rounded-b-lg">
+          <h4 className="font-semibold mb-2 text-lime-300">Settings</h4>
+          <p className="text-sm text-gray-300">Configure your preferences and account settings here.</p>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="tabs tabs-lift tabs-lift-border-lime-300 tabs-bg-black tabs-fg-active-white">
+      <input type="radio" name="my_tabs_3" class="tab" aria-label="Tab 1" />
+      <div class="tab-content bg-black text-white p-10">Tab content 1</div>
+
+      <input type="radio" name="my_tabs_3" class="tab" aria-label="Tab 2" checked />
+      <div class="tab-content bg-black text-white p-10">Tab content 2</div>
+
+      <input type="radio" name="my_tabs_3" class="tab" aria-label="Tab 3" />
+      <div class="tab-content bg-black text-white p-10">Tab content 3</div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Color Theme Variations
+
+Different color schemes for various design needs:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 space-y-6">
+      <div>
+        <h4 className="text-sm font-medium mb-2">Ocean Theme</h4>
+        <div className="tabs tabs-lift tabs-lift-border-blue-400 tabs-bg-blue-50 tabs-fg-active-blue-700">
+          <input type="radio" name="ocean_tabs" className="tab" aria-label="Home" defaultChecked />
+          <div className="tab-content bg-blue-50 text-blue-900 p-4 rounded-b-lg">
+            <p className="text-sm">Ocean themed tabs with blue tones</p>
+          </div>
+
+          <input type="radio" name="ocean_tabs" className="tab" aria-label="About" />
+          <div className="tab-content bg-blue-50 text-blue-900 p-4 rounded-b-lg">
+            <p className="text-sm">Perfect for professional interfaces</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Forest Theme</h4>
+        <div className="tabs tabs-border tabs-bg-green-50 tabs-fg-active-green-800">
+          <input type="radio" name="forest_tabs" className="tab" aria-label="Products" defaultChecked />
+          <div className="tab-content bg-green-50 text-green-900 p-4 rounded-b-lg">
+            <p className="text-sm">Forest themed with green accents</p>
+          </div>
+
+          <input type="radio" name="forest_tabs" className="tab" aria-label="Services" />
+          <div className="tab-content bg-green-50 text-green-900 p-4 rounded-b-lg">
+            <p className="text-sm">Great for eco-friendly brands</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-sm font-medium mb-2">Sunset Theme</h4>
+        <div className="tabs tabs-lift tabs-lift-border-orange-400 tabs-bg-orange-50 tabs-fg-active-red-700">
+          <input type="radio" name="sunset_tabs" className="tab" aria-label="Gallery" defaultChecked />
+          <div className="tab-content bg-gradient-to-r from-orange-50 to-red-50 text-red-900 p-4 rounded-b-lg">
+            <p className="text-sm">Warm sunset colors for creative interfaces</p>
+          </div>
+
+          <input type="radio" name="sunset_tabs" className="tab" aria-label="Contact" />
+          <div className="tab-content bg-gradient-to-r from-orange-50 to-red-50 text-red-900 p-4 rounded-b-lg">
+            <p className="text-sm">Eye-catching and energetic design</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- Ocean Theme -->
+    <div class="tabs tabs-lift tabs-lift-border-blue-400 tabs-bg-blue-50 tabs-fg-active-blue-700">
+      <input type="radio" name="ocean_tabs" class="tab" aria-label="Tab 1" checked />
+      <div class="tab-content bg-blue-50 text-blue-900 p-4">Content 1</div>
+      
+      <input type="radio" name="ocean_tabs" class="tab" aria-label="Tab 2" />
+      <div class="tab-content bg-blue-50 text-blue-900 p-4">Content 2</div>
+    </div>
+
+    <!-- Sunset Theme -->
+    <div class="tabs tabs-lift tabs-lift-border-orange-400 tabs-bg-orange-50 tabs-fg-active-red-700">
+      <input type="radio" name="sunset_tabs" class="tab" aria-label="Tab 1" checked />
+      <div class="tab-content bg-orange-50 text-red-900 p-4">Content 1</div>
+      
+      <input type="radio" name="sunset_tabs" class="tab" aria-label="Tab 2" />
+      <div class="tab-content bg-orange-50 text-red-900 p-4">Content 2</div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Accessibility Features
+
+The tabs component is built with accessibility in mind:
+
+- **Keyboard Navigation**: Use arrow keys to navigate between tabs
+- **ARIA Labels**: Each tab should have a descriptive `aria-label`
+- **Radio Input Pattern**: Uses radio inputs for semantic tab behavior
+- **Focus Management**: Automatic focus management when switching tabs

@@ -1,0 +1,239 @@
+---
+title: Loading
+desc: Various loading spinner animations for different states and contexts with customizable sizes and colors.
+classnames:
+  component:
+    - class: loading
+      desc: Base loading spinner animation
+  modifier:
+    - class: loading-bars
+      desc: Bar-style loading animation
+    - class: loading-dots
+      desc: Dot-style loading animation
+    - class: loading-infinity
+      desc: Infinity symbol loading animation
+    - class: loading-pulse
+      desc: Pulsing circle loading animation
+  size:
+    - class: loading-lg
+      desc: Large size variant
+    - class: loading-xl
+      desc: Extra large size variant
+---
+
+import { Tabs } from 'nextra/components'
+
+# Loading
+
+Various loading spinner animations for different states and contexts. Provides multiple animation styles with customizable sizes and colors.
+
+## Class Reference
+
+| Class Name | Type | Description |
+|------------|------|-------------|
+| `loading` | Component | Base loading spinner animation |
+| `loading-bars` | Modifier | Bar-style loading animation |
+| `loading-dots` | Modifier | Dot-style loading animation |
+| `loading-infinity` | Modifier | Infinity symbol loading animation |
+| `loading-pulse` | Modifier | Pulsing circle loading animation |
+| `loading-lg` | Size | Large size variant |
+| `loading-xl` | Size | Extra large size variant |
+
+## Setup
+
+<Tabs items={['CSS']}>
+  <Tabs.Tab>
+    ```css
+    @import "@leafy-ui/core/style";
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Default Spinner
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="loading"></div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="loading"></div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Bar Loaders
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="flex items-center gap-6">
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Default</h4>
+          <div className="loading loading-bars"></div>
+        </div>
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Large</h4>
+          <div className="loading loading-bars loading-lg"></div>
+        </div>
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Extra Large</h4>
+          <div className="loading loading-bars loading-xl"></div>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- Default Size -->
+    <div class="loading loading-bars"></div>
+
+    <!-- Large Size -->
+    <div class="loading loading-bars loading-lg"></div>
+
+    <!-- Extra Large Size -->
+    <div class="loading loading-bars loading-xl"></div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Dot Loader
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="flex items-center gap-6">
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Default</h4>
+          <div className="loading loading-dots"></div>
+        </div>
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Large</h4>
+          <div className="loading loading-dots loading-lg"></div>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- Default Size -->
+    <div class="loading loading-dots"></div>
+
+    <!-- Large Size -->
+    <div class="loading loading-dots loading-lg"></div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Infinity Loader
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="flex items-center gap-6">
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Default</h4>
+          <div className="loading loading-infinity loading-lg"></div>
+        </div>
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Colored</h4>
+          <div className="loading loading-infinity loading-lg text-orange-500"></div>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- Default -->
+    <div class="loading loading-infinity loading-lg"></div>
+
+    <!-- With Custom Color -->
+    <div class="loading loading-infinity loading-lg text-orange-500"></div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Pulse Loader
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="flex items-center gap-6">
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Default</h4>
+          <div className="loading loading-pulse loading-lg"></div>
+        </div>
+        <div>
+          <h4 className="text-sm font-medium mb-2 text-gray-600">Colored</h4>
+          <div className="loading loading-pulse loading-lg text-lime-500"></div>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- Default -->
+    <div class="loading loading-pulse loading-lg"></div>
+
+    <!-- With Custom Color -->
+    <div class="loading loading-pulse loading-lg text-lime-500"></div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### All Loaders Showcase
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="text-center">
+          <h4 className="text-sm font-medium mb-3 text-gray-600">Default</h4>
+          <div className="loading mx-auto"></div>
+        </div>
+        <div className="text-center">
+          <h4 className="text-sm font-medium mb-3 text-gray-600">Bars</h4>
+          <div className="loading loading-bars mx-auto"></div>
+        </div>
+        <div className="text-center">
+          <h4 className="text-sm font-medium mb-3 text-gray-600">Dots</h4>
+          <div className="loading loading-dots mx-auto"></div>
+        </div>
+        <div className="text-center">
+          <h4 className="text-sm font-medium mb-3 text-gray-600">Infinity</h4>
+          <div className="loading loading-infinity text-purple-500 mx-auto"></div>
+        </div>
+        <div className="text-center">
+          <h4 className="text-sm font-medium mb-3 text-gray-600">Pulse</h4>
+          <div className="loading loading-pulse text-blue-500 mx-auto"></div>
+        </div>
+        <div className="text-center">
+          <h4 className="text-sm font-medium mb-3 text-gray-600">Bars XL</h4>
+          <div className="loading loading-bars loading-xl mx-auto"></div>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <!-- All Loading Variants -->
+    <div class="loading"></div>
+    <div class="loading loading-bars"></div>
+    <div class="loading loading-dots"></div>
+    <div class="loading loading-infinity text-purple-500"></div>
+    <div class="loading loading-pulse text-blue-500"></div>
+    <div class="loading loading-bars loading-xl"></div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage Notes
+
+- Use `loading` as the base class for all spinner animations
+- Combine with style modifiers: `loading-bars`, `loading-dots`, `loading-infinity`, `loading-pulse`
+- Size variants: `loading-lg` (large), `loading-xl` (extra large)
+- Customize colors using Tailwind text color classes like `text-orange-500`
+- Perfect for loading states, async operations, and progress indicators
+- All animations are CSS-based for optimal performance
