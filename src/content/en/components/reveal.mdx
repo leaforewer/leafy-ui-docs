@@ -1,0 +1,298 @@
+---
+title: Reveal on Scroll
+desc: Scroll-based reveal animations that trigger when elements enter the viewport.
+classnames:
+  component:
+    - class: reveal-up
+      desc: Fade up animation on scroll into view
+    - class: reveal-left
+      desc: Slide in from left animation on scroll
+    - class: reveal-fade
+      desc: Fade in animation on scroll into view
+  utilities:
+    - class: --reveal-delay
+      desc: Custom delay for reveal animation (CSS custom property)
+---
+
+import { Tabs } from 'nextra/components'
+
+# Reveal
+
+Scroll-based reveal animations that trigger when elements enter the viewport. Uses modern CSS animation-timeline for smooth, performant animations.
+
+## Class Reference
+
+| Class Name | Description |
+|------------|-------------|
+| `reveal-up` | Fade up animation on scroll into view |
+| `reveal-left` | Slide in from left animation on scroll |
+| `reveal-fade` | Fade in animation on scroll into view |
+
+### Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--reveal-delay` | Custom delay for reveal animation (default: 100ms) |
+
+## Setup
+
+<Tabs items={['CSS']}>
+  <Tabs.Tab>
+    ```css
+    @import "@leafy-ui/core/style";
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Fade Up
+
+Elements slide up and fade in as they enter the viewport:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="reveal-up bg-lime-200 p-10 rounded-lg text-center font-medium">
+        Fade up animation
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="reveal-up bg-lime-200 p-10 rounded-lg">
+      Fade up animation
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Slide Left
+
+Elements slide in from the left as they enter the viewport:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="reveal-left bg-sky-200 p-10 rounded-lg text-center font-medium">
+        Slide from left
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="reveal-left bg-sky-200 p-10 rounded-lg">
+      Slide from left
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Fade In
+
+Simple fade in animation as elements enter the viewport:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="reveal-fade bg-rose-200 p-10 rounded-lg text-center font-medium">
+        Fade in animation
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="reveal-fade bg-rose-200 p-10 rounded-lg">
+      Fade in animation
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Multiple Elements
+
+Create staggered animations with multiple reveal elements:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 space-y-8">
+      <div className="reveal-up bg-blue-100 p-6 rounded-lg text-center">
+        First element (fade up)
+      </div>
+      <div className="reveal-left bg-green-100 p-6 rounded-lg text-center">
+        Second element (slide left)
+      </div>
+      <div className="reveal-fade bg-purple-100 p-6 rounded-lg text-center">
+        Third element (fade in)
+      </div>
+      <div className="reveal-up bg-orange-100 p-6 rounded-lg text-center">
+        Fourth element (fade up)
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="reveal-up bg-blue-100 p-6 rounded-lg">
+      First element (fade up)
+    </div>
+    <div class="reveal-left bg-green-100 p-6 rounded-lg">
+      Second element (slide left)
+    </div>
+    <div class="reveal-fade bg-purple-100 p-6 rounded-lg">
+      Third element (fade in)
+    </div>
+    <div class="reveal-up bg-orange-100 p-6 rounded-lg">
+      Fourth element (fade up)
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Custom Delay
+
+Adjust animation delay using CSS custom properties:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 space-y-6">
+      <div className="reveal-up bg-yellow-100 p-4 rounded-lg text-center" style={{'--reveal-delay': '0ms'}}>
+        No delay
+      </div>
+      <div className="reveal-up bg-yellow-200 p-4 rounded-lg text-center" style={{'--reveal-delay': '200ms'}}>
+        200ms delay
+      </div>
+      <div className="reveal-up bg-yellow-300 p-4 rounded-lg text-center" style={{'--reveal-delay': '400ms'}}>
+        400ms delay
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="reveal-up bg-yellow-100 p-4 rounded-lg" style="--reveal-delay: 0ms">
+      No delay
+    </div>
+    <div class="reveal-up bg-yellow-200 p-4 rounded-lg" style="--reveal-delay: 200ms">
+      200ms delay
+    </div>
+    <div class="reveal-up bg-yellow-300 p-4 rounded-lg" style="--reveal-delay: 400ms">
+      400ms delay
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Card Grid Example
+
+Practical example with a card grid layout:
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="reveal-up bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <h3 className="font-semibold text-lg mb-2">Feature One</h3>
+          <p className="text-gray-600 text-sm">Description of the first feature with reveal animation.</p>
+        </div>
+        <div className="reveal-up bg-white border border-gray-200 rounded-lg p-6 shadow-sm" style={{'--reveal-delay': '100ms'}}>
+          <h3 className="font-semibold text-lg mb-2">Feature Two</h3>
+          <p className="text-gray-600 text-sm">Description of the second feature with slight delay.</p>
+        </div>
+        <div className="reveal-up bg-white border border-gray-200 rounded-lg p-6 shadow-sm" style={{'--reveal-delay': '200ms'}}>
+          <h3 className="font-semibold text-lg mb-2">Feature Three</h3>
+          <p className="text-gray-600 text-sm">Description of the third feature with more delay.</p>
+        </div>
+      </div>
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="reveal-up bg-white border rounded-lg p-6 shadow-sm">
+        <h3 class="font-semibold text-lg mb-2">Feature One</h3>
+        <p class="text-gray-600">First feature description.</p>
+      </div>
+      <div class="reveal-up bg-white border rounded-lg p-6 shadow-sm" style="--reveal-delay: 100ms">
+        <h3 class="font-semibold text-lg mb-2">Feature Two</h3>
+        <p class="text-gray-600">Second feature description.</p>
+      </div>
+      <div class="reveal-up bg-white border rounded-lg p-6 shadow-sm" style="--reveal-delay: 200ms">
+        <h3 class="font-semibold text-lg mb-2">Feature Three</h3>
+        <p class="text-gray-600">Third feature description.</p>
+      </div>
+    </div>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Browser Support
+
+Reveal animations use modern CSS `animation-timeline: view()` which provides:
+
+- **Progressive Enhancement**: Animations only work in supported browsers
+- **Graceful Fallback**: Content remains visible and accessible in all browsers
+- **Performance**: Hardware-accelerated animations tied to scroll progress
+
+### Supported Browsers
+
+- Chrome 115+
+- Edge 115+
+- Safari 16.4+
+- Firefox (experimental support)
+
+## Best Practices
+
+```html
+<!-- Use consistent spacing for better visual flow -->
+<div class="space-y-8">
+  <div class="reveal-up">First element</div>
+  <div class="reveal-up">Second element</div>
+</div>
+
+<!-- Stagger delays for sequential animations -->
+<div class="reveal-up" style="--reveal-delay: 0ms">Element 1</div>
+<div class="reveal-up" style="--reveal-delay: 100ms">Element 2</div>
+<div class="reveal-up" style="--reveal-delay: 200ms">Element 3</div>
+
+<!-- Combine with other utility classes -->
+<div class="reveal-fade bg-gradient-to-r from-blue-500 to-purple-600 text-white p-8 rounded-xl">
+  Styled reveal element
+</div>
+```
+
+## Framework Integration
+
+### React
+
+```jsx
+function RevealExample() {
+  return (
+    <div className="space-y-6">
+      <div className="reveal-up bg-blue-100 p-6 rounded-lg">
+        This fades up on scroll
+      </div>
+      <div 
+        className="reveal-fade bg-green-100 p-6 rounded-lg"
+        style={{ '--reveal-delay': '200ms' }}
+      >
+        This fades in with delay
+      </div>
+    </div>
+  );
+}
+```
+
+### Vue
+
+```vue
+<template>
+  <div class="space-y-6">
+    <div class="reveal-up bg-blue-100 p-6 rounded-lg">
+      This fades up on scroll
+    </div>
+    <div 
+      class="reveal-fade bg-green-100 p-6 rounded-lg"
+      :style="{ '--reveal-delay': '200ms' }"
+    >
+      This fades in with delay
+    </div>
+  </div>
+</template>
+```

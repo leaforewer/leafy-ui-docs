@@ -13,7 +13,10 @@ import {
     Navigation,
     MessageSquare,
     Palette,
-    SquareStack
+    SquareStack,
+    Text,
+    LetterText,
+    SquareArrowDown
 } from 'lucide-react'
 import { Link } from 'next-view-transitions'
 
@@ -71,6 +74,11 @@ const navigationData: NavItem[] = [
                 icon: <RotateCcw className="w-4 h-4" />,
             },
             {
+                title: 'Typewriter',
+                href: '/components/type-writer',
+                icon: <LetterText className="w-4 h-4" />,
+            },
+            {
                 title: 'Dropdowns',
                 href: '/components/dropdowns',
                 icon: <Menu className="w-4 h-4" />,
@@ -104,6 +112,11 @@ const navigationData: NavItem[] = [
                 title: 'Animated Lists',
                 href: '/components/animated-lists',
                 icon: <Navigation className="w-4 h-4" />,
+            },
+            {
+                title: 'Reveal on Scroll',
+                href: '/components/reveal',
+                icon: <SquareArrowDown className="w-4 h-4" />,
             },
             {
                 title: 'Indicator',

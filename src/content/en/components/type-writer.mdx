@@ -1,0 +1,240 @@
+---
+title: Type Writer
+desc: Animated typewriter effect that types text character by character with customizable speed and timing.
+classnames:
+  component:
+    - class: type-writer
+      desc: Main typewriter web component
+  attributes:
+    - class: text
+      desc: Text content to be typed
+    - class: delay
+      desc: Delay before animation starts (milliseconds)
+    - class: speed
+      desc: Typing speed in milliseconds per character
+    - class: inview
+      desc: Start animation when element enters viewport
+    - class: blink
+      desc: Enable blinking cursor effect
+    - class: caretChar
+      desc: Custom cursor character
+    - class: loop
+      desc: Loop the animation continuously
+---
+
+import { Tabs } from 'nextra/components'
+
+# Type Writer
+
+Animated typewriter effect that types text character by character. Perfect for hero sections, loading states, and engaging text reveals.
+
+## Class Reference
+
+| Class Name | Type | Description |
+|------------|------|-------------|
+| `type-writer` | Component | Main typewriter web component |
+
+### Attributes
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `text` | String | Text content to be typed |
+| `delay` | Number | Delay before animation starts (milliseconds) |
+| `speed` | Number | Typing speed in milliseconds per character |
+| `inview` | Boolean | Start animation when element enters viewport |
+| `blink` | Boolean | Enable blinking cursor effect |
+| `caretChar` | String | Custom cursor character (default: "|") |
+| `loop` | Boolean | Loop the animation continuously |
+
+## Setup
+
+<Tabs items={['JavaScript']}>
+  <Tabs.Tab>
+    ```bash
+    npm install @leafy-ui/core
+    ```
+    
+    ```js
+    import '@leafy-ui/core/components/type-writer'
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Basic Type Writer
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <type-writer text="Hello, welcome to our website!"></type-writer>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <type-writer text="Hello, welcome to our website!"></type-writer>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Custom Styling
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <type-writer text="hello this is text" class="text-3xl font-bold text-blue-600" delay="2000" speed="60" inview="false"></type-writer>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <type-writer 
+      text="hello this is text" 
+      class="text-3xl font-bold text-blue-600" 
+      delay="2000" 
+      speed="60" 
+      inview="false">
+    </type-writer>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Delayed Sequences
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 space-y-4">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <type-writer text="First message appears immediately" delay="0"></type-writer>
+          <type-writer text="Second message after 1 second" delay="1000"></type-writer>
+          <type-writer text="Third message after 2 seconds" delay="2000"></type-writer>
+          <type-writer text="Final message after 3 seconds" delay="3000"></type-writer>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <type-writer text="First message appears immediately" delay="0"></type-writer>
+    <type-writer text="Second message after 1 second" delay="1000"></type-writer>
+    <type-writer text="Third message after 2 seconds" delay="2000"></type-writer>
+    <type-writer text="Final message after 3 seconds" delay="3000"></type-writer>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Looping Animation
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <type-writer text="This text loops continuously..." blink caretChar="_" loop class="text-lg text-green-600"></type-writer>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <type-writer 
+      text="This text loops continuously..." 
+      blink 
+      caretChar="_" 
+      loop>
+    </type-writer>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### InView Animation
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <type-writer text="I start typing when you scroll to me" inview delay="600" class="text-purple-600"></type-writer>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <type-writer 
+      text="I start typing when you scroll to me" 
+      inview 
+      delay="600">
+    </type-writer>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Custom Cursor
+
+<Tabs items={['Preview', 'HTML']}>
+  <Tabs.Tab>
+    <div className="not-prose my-6 space-y-4">
+      <div dangerouslySetInnerHTML={{
+        __html: `
+          <type-writer text="Default cursor" blink class="text-sm"></type-writer>
+          <type-writer text="Underscore cursor" blink caretChar="_" class="text-sm"></type-writer>
+          <type-writer text="Block cursor" blink caretChar="█" class="text-sm"></type-writer>
+          <type-writer text="Arrow cursor" blink caretChar="▶" class="text-sm"></type-writer>
+        `
+      }} />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```html
+    <type-writer text="Default cursor" blink></type-writer>
+    <type-writer text="Underscore cursor" blink caretChar="_"></type-writer>
+    <type-writer text="Block cursor" blink caretChar="█"></type-writer>
+    <type-writer text="Arrow cursor" blink caretChar="▶"></type-writer>
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Javascript API
+
+### Options
+
+```html
+
+<type-writer id="tw"></type-writer>
+
+<script type="module">
+  const tw = document.getElementById('tw');
+
+  // TEXT (string or array for multi-line)
+  tw.text = ['Hello there,', 'this types like a terminal.'];
+
+  // OPTIONS (ms per char — larger is slower)
+  tw.speed = 40;          // base speed
+  tw.variance = 0.35;     // natural jitter (0..1)
+  tw.commaPause = 120;    // pause after ','
+  tw.periodPause = 240;   // pause after . : ; ! ?
+  tw.blink = true;        // caret blink
+  tw.caretChar = '';      // e.g. '_' to use a char caret
+  tw.inview = true;       // start when visible
+  tw.delay = 300;         // start delay (ms) once starting
+  tw.loop = false;        // repeat animation
+
+  // CONTROLS
+  tw.play();            // start immediately (ignores inview)
+  tw.pause();           // pause
+  tw.reset();           // clear
+  tw.restart();         // reset + play
+
+  // EVENTS
+  tw.addEventListener('tw-start',  () => console.log('started'));
+  tw.addEventListener('tw-finish', () => console.log('finished'));
+</script>
+
+```
